@@ -9,6 +9,11 @@ class Home extends BaseController
 		return view('view_index');
 	}
 
+	public function surat()
+	{
+		return view('view_surat_masuk');
+	}
+
 	public function cetak()
 	{
 		return view('view_cetak');

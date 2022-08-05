@@ -4,6 +4,12 @@
         <div class="sidebar-content">
 
             <ul class="nav nav-primary">
+                <li class="nav-item">
+                    <a href="<?= base_url('/formsuratbaru') ?>">
+                        <i class="fas fa-home"></i>
+                        <p>Form Surat Baru</p>
+                    </a>
+                </li>
                 <li class="nav-section">
                     <!-- <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
@@ -11,7 +17,7 @@
                     <h4 class="text-section">Components</h4>
                 </li>
                 <li class="nav-item">
-                    <a href="#base">
+                    <a href="<?= base_url('/') ?>">
                         <i class="fas fa-home"></i>
                         <p>Beranda</p>
                     </a>
