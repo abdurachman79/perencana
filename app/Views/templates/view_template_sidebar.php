@@ -6,79 +6,41 @@
             <ul class="nav nav-primary">
                 <li class="nav-item">
                     <a href="<?= base_url('/formsuratbaru') ?>">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-angle-right"></i>
                         <p>Form Surat Baru</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('/') ?>">
+                        <i class="fas fa-angle-right"></i>
+                        <p>Beranda</p>
                     </a>
                 </li>
                 <li class="nav-section">
                     <!-- <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span> -->
-                    <h4 class="text-section">Components</h4>
+                    <h4 class="text-section mb-0">Surat</h4>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('/') ?>">
-                        <i class="fas fa-home"></i>
-                        <p>Beranda</p>
+                    <a href="<?= base_url('') ?>">
+                        <i class="fas fa-angle-right"></i>
+                        <p>Surat Masuk</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="#base">
-                        <i class="fas fa-layer-group"></i>
-                        <p>Berkas</p>
-                        <span class="caret"></span>
+                    <a href="<?= base_url('') ?>">
+                        <i class="fas fa-angle-right"></i>
+                        <p>Surat Revisi</p>
                     </a>
-                    <div class="collapse" id="base">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="components/avatars.html">
-                                    <span class="sub-item">Berkas Masuk</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="components/buttons.html">
-                                    <span class="sub-item">Berkas Keluar</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="#sidebarLayouts">
-                        <i class="fas fa-th-list"></i>
-                        <p>Sidebar Layouts</p>
-                        <span class="caret"></span>
+                    <a href="<?= base_url('') ?>">
+                        <i class="fas fa-angle-right"></i>
+                        <p>Surat Keluar</p>
                     </a>
-                    <div class="collapse" id="sidebarLayouts">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="sidebar-style-1.html">
-                                    <span class="sub-item">Sidebar Style 1</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="overlay-sidebar.html">
-                                    <span class="sub-item">Overlay Sidebar</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="compact-sidebar.html">
-                                    <span class="sub-item">Compact Sidebar</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="static-sidebar.html">
-                                    <span class="sub-item">Static Sidebar</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="icon-menu.html">
-                                    <span class="sub-item">Icon Menu</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
+
 
             </ul>
         </div>

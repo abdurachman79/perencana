@@ -28,6 +28,12 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/bootstrap.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/atlantis.css">
 
+    <style>
+        a {
+            text-decoration: none !important;
+        }
+    </style>
+
     <?= $this->renderSection('style'); ?>
 
 </head>
