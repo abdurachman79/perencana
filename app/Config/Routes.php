@@ -32,7 +32,10 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Beranda::index');
-$routes->get('/formsuratbaru', 'Surat::formsuratbaru');
+$routes->get('/form-surat-baru', 'Surat::formsuratbaru');
+$routes->get('/surat-masuk', 'Surat::suratmasuk');
+$routes->get('/surat-revisi', 'Surat::suratrevisi');
+$routes->get('/surat-keluar', 'Surat::suratkeluar');
 // $routes->get('/', 'Beranda::index');
 
 

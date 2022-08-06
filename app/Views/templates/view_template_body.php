@@ -38,7 +38,7 @@
 
 </head>
 
-<body data-background-color="bg-1">
+<body data-background-color="bg1">
     <div class="wrapper">
         <div class="main-header">
 

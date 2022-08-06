@@ -247,7 +247,8 @@ body {
   min-height: 100vh;
   position: relative;
   /* background: #f9fbfd;  */
-  background: #f4f3ef; }
+  /* background: #f4f3ef;  */
+}
 
 .no-bd {
   border: 0px !important; }

@@ -5,12 +5,6 @@
 
             <ul class="nav nav-primary">
                 <li class="nav-item">
-                    <a href="<?= base_url('/formsuratbaru') ?>">
-                        <i class="fas fa-angle-right"></i>
-                        <p>Form Surat Baru</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="<?= base_url('/') ?>">
                         <i class="fas fa-angle-right"></i>
                         <p>Beranda</p>
@@ -23,19 +17,19 @@
                     <h4 class="text-section mb-0">Surat</h4>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('') ?>">
+                    <a href="<?= base_url('/surat-masuk') ?>">
                         <i class="fas fa-angle-right"></i>
                         <p>Surat Masuk</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('') ?>">
+                    <a href="<?= base_url('surat-revisi') ?>">
                         <i class="fas fa-angle-right"></i>
                         <p>Surat Revisi</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('') ?>">
+                    <a href="<?= base_url('surat-keluar') ?>">
                         <i class="fas fa-angle-right"></i>
                         <p>Surat Keluar</p>
                     </a>
