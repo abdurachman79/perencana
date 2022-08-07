@@ -25,8 +25,12 @@
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/atlantis.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/datatables.min.css">
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/custom.css">
 
     <style>
         a {
@@ -94,6 +98,9 @@
     <script src="<?= base_url() ?>/public/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <script src="<?= base_url() ?>/public/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
 
+    <!-- Datatables -->
+    <script src="<?= base_url() ?>/public/assets/js/plugin/datatables/datatables.min.js"></script>
+
     <!-- jQuery Scrollbar -->
     <script src="<?= base_url() ?>/public/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
@@ -126,7 +133,7 @@
     <script src="<?= base_url() ?>/public/assets/js/atlantis.min.js"></script>
 
     <script>
-        var base_url = '<?php echo base_url() ?>';
+        var base_url = '<?= base_url() ?>';
     </script>
 
     <?= $this->renderSection('script'); ?>

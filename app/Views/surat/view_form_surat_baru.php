@@ -226,8 +226,14 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary me-4" id="btn-simpan-disposisi">Simpan</button>
-                    <button type="submit" class="btn btn-primary" id="btn-simpan-cetak-disposisi">Simpan & Cetak</button>
+                    <button type="submit" class="btn btn-success me-4" id="btn-simpan-disposisi">
+                        <i class="fas fa-save pe-2"></i>
+                        <span>Simpan</span>
+                    </button>
+                    <button type="submit" class="btn btn-dark" id="btn-simpan-cetak-disposisi">
+                        <i class="fas fa-print pe-2"></i>
+                        <span>Simpan & Cetak</span>
+                    </button>
                 </div>
 
             </form>

@@ -30,6 +30,6 @@ class Surat extends BaseController
         $data = [
             'title'  => 'Surat Keluar'
         ];
-        return view('surat/view_surat_masuk', $data);
+        return view('surat/view_surat_keluar', $data);
     }
 }

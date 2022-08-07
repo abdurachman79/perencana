@@ -3,8 +3,8 @@
 <?= $this->section('style'); ?>
 <style>
     .table {
-        border-collapse: separate;
-        border-spacing: 0 5px;
+        border-collapse: separate !important;
+        border-spacing: 0 5px !important;
     }
 
     .table th {
@@ -16,7 +16,7 @@
     }
 
     .table tbody tr {
-        background-color: white;
+        background-color: white !important;
     }
 
     .table tbody tr td:last-child {
@@ -28,7 +28,7 @@
         border: none !important;
         border-bottom: 1px solid #ebedf2 !important;
         border-right: 1px solid #ebedf2 !important;
-        padding: 6px 18px 6px 6px !important;
+        padding: 7px 18px 7px 6px !important;
         font-size: 14px !important;
         color: #7c7c7c !important;
     }
@@ -37,14 +37,15 @@
         opacity: 0.5 !important;
     }
 
-    .btn {
-        border: none !important;
-        border-bottom: 1px solid #ebedf2 !important;
+    .pagination>li>a,
+    .pagination>li:first-child>a,
+    .pagination>li:last-child>a {
         border-radius: 0 !important;
-        text-transform: uppercase;
-        font-weight: bold;
-        padding: 6px 18px;
-        color: #fbfbfb;
+        font-size: 13px !important;
+    }
+
+    .pagination>li:focus {
+        color: black !important;
     }
 </style>
 
@@ -102,7 +103,7 @@
     <div class="row justify-content-center">
         <div class="col-12">
 
-            <table class="table">
+            <table id="table-surat" class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -112,23 +113,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>2</tscope=>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                    <?php
+                    for ($i = 1; $i < 100; $i++) : ?>
+                        <tr>
+                            <td><?= $i ?></td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                    <?php endfor; ?>
                 </tbody>
             </table>
 
@@ -142,5 +135,18 @@
 
 
 <?= $this->section('script'); ?>
+
+<script>
+    let table = new DataTable('#table-surat', {
+        "ordering": false,
+        "lengthChange": false,
+        "info": false,
+        "searching": false,
+        "pageLength": 20,
+        "language": {
+            "url": base_url + "/public/assets/datatable-id.json"
+        }
+    });
+</script>
 
 <?= $this->endSection(); ?>
