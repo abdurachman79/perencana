@@ -23,10 +23,6 @@
         padding: 0 !important;
     }
 
-    .table tbody td span {
-        text-transform: uppercase;
-    }
-
     .table tbody tr td:last-child {
         border-right: 1px solid #ebedf2;
     }
@@ -82,6 +78,19 @@
         padding: 10px 0;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .col-detail p {
+        line-height: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .sub-detail span {
+        font-size: 12px;
+        /* font-weight: bold; */
+        line-height: 2px;
     }
 </style>
 
@@ -157,23 +166,19 @@
                                 </div>
 
                                 <div class="col-detail">
-                                    <p class="perihal">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente corporis eum totam facilis tempore asd dolor sit amet consectetur</p>
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente corporis eum totam facilis tempore asd dolor sit amet consectetur ipsum dolor sit amet</p>
                                     <div class="d-flex">
-                                        <div class="d-flex flex-column">
-                                            <span>Dari:</span>
-                                            <span class="fw-bold">Divisi Pengolahan Air Minum</span>
+                                        <div class="sub-detail" style="min-width: 22%;">
+                                            <span data-tooltip="Asal Memo" data-tooltip-position="bottom"><i class="fas fa-map-marker me-1" style="color: blue;"></i>Divisi Pengolahan Air Minum Bersih Sekalio</span>
                                         </div>
-                                        <div class="d-flex flex-column ms-3">
-                                            <span>Memo No:</span>
-                                            <span class="fw-bold">123/PAM/02/2022</span>
+                                        <div class="sub-detail ms-3" style="min-width: 15%;">
+                                            <span data-tooltip="No. Memo" data-tooltip-position="bottom"><i class="far fa-sticky-note me-1" style="color: red;"></i>123/PAM/02/2022</span>
                                         </div>
-                                        <div class="d-flex flex-column ms-3">
-                                            <span>Tgl Memo:</span>
-                                            <span class="fw-bold">04/08/2022</span>
+                                        <div class="sub-detail ms-3" style="min-width: 8%;">
+                                            <span data-tooltip="Tgl. Memo" data-tooltip-position="bottom"><i class="far fa-calendar me-1" style="color: green;"></i>04/08/2022</span>
                                         </div>
-                                        <div class="d-flex flex-column ms-3">
-                                            <span>Nilai Memo:</span>
-                                            <span class="fw-bold">Rp. 999.000.000.000</span>
+                                        <div class="sub-detail ms-3" style="min-width: 8%;">
+                                            <span data-tooltip="Nilai RAB" data-tooltip-position="bottom"><i class="fas fa-dollar-sign me-1" style="color: orange;"></i>Rp. 999.000.000.000</span>
                                         </div>
                                     </div>
                                 </div>
@@ -183,39 +188,38 @@
                     </tr>
 
                     <tr>
-                        <td style="border-left: 6px solid green !important;">
-                            <div class="bungkus-luar">
-                                <div class="bungkus-1 d-flex">
-                                    <div class="col-agenda">
-                                        <span>Agenda No.</span>
-                                        <span class="nomor">13</span>
-                                        <span>04/08/2022</span>
-                                    </div>
-                                    <div style="width: 87%">
-                                        <span class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt maiores neque, excepturi delectus, quod</span>
+                        <td style="border-left: 6px solid red !important;">
+                            <div class="d-flex">
+
+                                <div class="col-agenda">
+                                    <span>Agenda No.</span>
+                                    <span class="nomor">9196</span>
+                                    <span>04/08/2022</span>
+                                </div>
+
+                                <div class="col-detail">
+                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente corporis eum totam facilis tempore asd dolor</p>
+                                    <div class="d-flex">
+                                        <div class="sub-detail" style="min-width: 22%;">
+                                            <span><i class="fas fa-map-marker me-1" style="color: blue;"></i>Divisi Peralatan Teknik</span>
+                                        </div>
+                                        <div class="sub-detail ms-3" style="min-width: 15%;">
+                                            <span><i class="far fa-sticky-note me-1" style="color: red;"></i>2392/PLT/01/2022</span>
+                                        </div>
+                                        <div class="sub-detail ms-3" style="min-width: 8%;">
+                                            <span><i class="far fa-calendar me-1" style="color: green;"></i>04/08/2022</span>
+                                        </div>
+                                        <div class="sub-detail ms-3" style="min-width: 8%;">
+                                            <span><i class="fas fa-dollar-sign me-1" style="color: orange;"></i>Rp. 81.920.000</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="bungkus-2 d-flex ps-4 pb-2">
-                                    <div class="d-flex flex-column">
-                                        <span>Dari:</span>
-                                        <span class="fw-bold">Divisi Pengolahan Air Minum</span>
-                                    </div>
-                                    <div class="d-flex flex-column ms-3">
-                                        <span>Memo No:</span>
-                                        <span class="fw-bold">123/PAM/02/2022</span>
-                                    </div>
-                                    <div class="d-flex flex-column ms-3">
-                                        <span>Tgl Memo:</span>
-                                        <span class="fw-bold">04/08/2022</span>
-                                    </div>
-                                    <div class="d-flex flex-column ms-3">
-                                        <span>Nilai Memo:</span>
-                                        <span class="fw-bold">Rp. 999.000.000.000</span>
-                                    </div>
-                                </div>
+
                             </div>
                         </td>
                     </tr>
+
+
                 </tbody>
             </table>
 

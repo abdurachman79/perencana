@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/atlantis.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/datatables.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/tooltip.css">
 
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/custom.css">
