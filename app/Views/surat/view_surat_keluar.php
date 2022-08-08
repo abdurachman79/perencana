@@ -169,7 +169,7 @@
                                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente corporis eum totam facilis tempore asd dolor sit amet consectetur ipsum dolor sit amet</p>
                                     <div class="d-flex">
                                         <div class="sub-detail" style="min-width: 22%;">
-                                            <span data-tooltip="Asal Memo" data-tooltip-position="bottom"><i class="fas fa-map-marker me-1" style="color: blue;"></i>Divisi Pengolahan Air Minum Bersih Sekalio</span>
+                                            <span data-tooltip="Asal Memo" data-tooltip-position="bottom"><i class="fas fa-map-marker me-1" style="color: blue;"></i>Divisi Pengolahan Air Minum</span>
                                         </div>
                                         <div class="sub-detail ms-3" style="min-width: 15%;">
                                             <span data-tooltip="No. Memo" data-tooltip-position="bottom"><i class="far fa-sticky-note me-1" style="color: red;"></i>123/PAM/02/2022</span>
