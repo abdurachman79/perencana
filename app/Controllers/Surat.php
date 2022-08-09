@@ -32,4 +32,12 @@ class Surat extends BaseController
         ];
         return view('surat/view_surat_keluar', $data);
     }
+
+    public function suratdetail()
+    {
+        $data = [
+            'title' => 'Surat Detail'
+        ];
+        return view('surat/view_surat_detail', $data);
+    }
 }
