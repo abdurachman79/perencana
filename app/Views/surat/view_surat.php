@@ -151,14 +151,14 @@
                 <option value="2">2022</option>
                 <option value="3">2023</option>
             </select>
-            <a href="<?= base_url('') ?>" class="btn btn-dark float-end">
-                <i class="fas fa-print pe-2"></i>
-                <span>Cetak</span>
+            <?php if ($tipe == 1) : ?>
+                <a href="<?= base_url('/form-surat-baru') ?>" class="btn btn-success float-end">
+                    <span>Surat Baru</span>
+                </a>
+            <?php endif; ?>
+            <a href="<?= base_url('') ?>" class="btn btn-dark float-end me-2">
+                <span>Filter</span>
             </a>
-            <!-- <a href="<?= base_url('/form-surat-baru') ?>" class="btn btn-success float-end me-2">
-                <i class="fas fa-plus pe-2"></i>
-                <span>Surat Baru</span>
-            </a> -->
         </div>
     </div>
 

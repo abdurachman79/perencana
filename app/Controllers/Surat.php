@@ -12,25 +12,28 @@ class Surat extends BaseController
     public function suratmasuk()
     {
         $data = [
-            'title'  => 'Surat Masuk'
+            'title'  => 'Surat Masuk',
+            'tipe'   => 1
         ];
-        return view('surat/view_surat_masuk', $data);
+        return view('surat/view_surat', $data);
     }
 
     public function suratrevisi()
     {
         $data = [
-            'title'  => 'Surat Revisi'
+            'title'  => 'Surat Revisi',
+            'tipe'   => 2
         ];
-        return view('surat/view_surat_masuk', $data);
+        return view('surat/view_surat', $data);
     }
 
     public function suratkeluar()
     {
         $data = [
-            'title'  => 'Surat Keluar'
+            'title'  => 'Surat Keluar',
+            'tipe'   => 3
         ];
-        return view('surat/view_surat_keluar', $data);
+        return view('surat/view_surat', $data);
     }
 
     public function suratdetail()
