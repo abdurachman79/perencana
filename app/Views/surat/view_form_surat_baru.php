@@ -83,7 +83,7 @@
     <div class="row justify-content-center">
         <div class="col-10">
 
-            <form action="" method="POST" id="form-lembar-disposisi">
+            <form action="<?= base_url('surat/simpansuratbaru') ?>" method="POST" id="form-lembar-disposisi">
 
                 <?= csrf_field(); ?>
 
@@ -115,64 +115,64 @@
                                     <label for="kepada">Kepada</label>
                                 </div>
                                 <div class="col-6 input-data">
-                                    <select id="dari" name="dari">
+                                    <select id="unitkerja-pengusul" name="unitkerja-pengusul">
                                         <option selected>Pilih Unit Kerja ...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option value="1">Divisi Umum</option>
+                                        <option value="2">Divisi Pengolahan Air Minum</option>
+                                        <option value="3">Divisi Peralatan Teknik</option>
                                     </select>
-                                    <label for="dari">Dari</label>
+                                    <label for="unitkerja-pengusul">Dari</label>
                                 </div>
 
                                 <div class="underline"></div>
 
                                 <div class="col-6 input-data">
-                                    <input type="date" id="diterima" name="diterima" class="tanggal">
-                                    <label for="diterima">Diterima Tgl.</label>
+                                    <input type="date" id="tgl-agenda" name="tgl-agenda" class="tanggal">
+                                    <label for="tgl-agenda">Diterima Tgl.</label>
                                 </div>
                                 <div class="col-6 input-data">
-                                    <input type="date" id="tgl-memo" name="tgl-memo" class="tanggal">
-                                    <label for="tgl-memo">Tgl. Memo</label>
-                                </div>
-
-                                <div class="underline"></div>
-
-                                <div class="col-6 input-data">
-                                    <input type="text" id="agenda-no" name="agenda-no">
-                                    <label for="agenda-no">Agenda No.</label>
-                                </div>
-                                <div class="col-6 input-data">
-                                    <input type="text" id="no-memo" name="no-memo">
-                                    <label for="no-memo">No. Memo</label>
+                                    <input type="date" id="tgl-memo-usulan" name="tgl-memo-usulan" class="tanggal">
+                                    <label for="tgl-memo-usulan">Tgl. Memo</label>
                                 </div>
 
                                 <div class="underline"></div>
 
                                 <div class="col-6 input-data">
-                                    <select id="jenis-memo" name="jenis-memo">
+                                    <input type="text" id="no-agenda" name="no-agenda">
+                                    <label for="no-agenda">Agenda No.</label>
+                                </div>
+                                <div class="col-6 input-data">
+                                    <input type="text" id="no-memo-usulan" name="no-memo-usulan">
+                                    <label for="no-memo-usulan">No. Memo</label>
+                                </div>
+
+                                <div class="underline"></div>
+
+                                <div class="col-6 input-data">
+                                    <select id="jenis-memo-usulan" name="jenis-memo-usulan">
                                         <option selected></option>
                                         <option value="1">Harga</option>
                                         <option value="2">RAB</option>
                                         <option value="3">Realisasi</option>
                                         <option value="3">Lainnya</option>
                                     </select>
-                                    <label for="jenis-memo">Jenis Memo</label>
+                                    <label for="jenis-memo-usulan">Jenis Memo</label>
                                 </div>
                                 <div class="col-6 input-data">
-                                    <input type="text" id="nilai-memo" name="nilai-memo">
-                                    <label for="nilai-memo">Nilai Memo</label>
+                                    <input type="text" id="nilai-usulan" name="nilai-usulan">
+                                    <label for="nilai-usulan">Nilai Memo</label>
                                 </div>
 
                                 <div class="underline"></div>
 
                                 <div class="col-6 input-data">
-                                    <select id="diteruskan" name="diteruskan">
+                                    <select id="bidang" name="bidang">
                                         <option selected></option>
                                         <option value="1">Kabid Perencana Teknik</option>
                                         <option value="2">Kabid Pengawasan Teknik</option>
                                         <option value="3">Kabid Gambar Teknik</option>
                                     </select>
-                                    <label for="diteruskan">Diteruskan ke</label>
+                                    <label for="bidang">Diteruskan ke</label>
                                 </div>
                                 <div class="col-6 input-data">
                                     <input type="text" id="sifat" name="sifat">
@@ -250,8 +250,8 @@
 <?= $this->section('script'); ?>
 
 <script>
-    document.getElementById('diterima').value = new moment().format('YYYY-MM-DD');
-    document.getElementById('tgl-memo').value = new moment().format('YYYY-MM-DD');
+    document.getElementById('tgl-agenda').value = new moment().format('YYYY-MM-DD');
+    document.getElementById('tgl-memo-usulan').value = new moment().format('YYYY-MM-DD');
 </script>
 
 <?= $this->endSection(); ?>

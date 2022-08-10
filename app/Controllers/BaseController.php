@@ -5,6 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\HTTP\IncomingRequest;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -28,6 +29,13 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = [];
+
+	/**
+	 * Instance of the main Request object.
+	 *
+	 * @var HTTP\IncomingRequest
+	 */
+	protected $request;
 
 	/**
 	 * Constructor.
