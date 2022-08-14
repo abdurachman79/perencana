@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Divisi Perencanaan Air Minum</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="public/assets/img/icon2.ico" type="image/x-icon" />
+    <link rel="icon" href="<?= base_url() ?>/public/assets/img/icon2.ico" type="image/x-icon" />
 
     <!-- Fonts and icons -->
     <script src="<?= base_url() ?>/public/assets/js/plugin/webfont/webfont.min.js"></script>
@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/atlantis.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/datatables.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/tooltip.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/public/assets/css/izitoast.min.css">
 
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/custom.css">
@@ -108,6 +109,9 @@
     <!-- Moment JS -->
     <script src="<?= base_url() ?>/public/assets/js/plugin/moment.js/moment.min.js"></script>
 
+    <!-- IziToast JS -->
+    <script src="<?= base_url(); ?>/public/assets/js/plugin/izitoast/izitoast.min.js"></script>
+
     <!-- Chart JS -->
     <!-- <script src="<?= base_url() ?>/public/assets/js/plugin/chart.js/chart.min.js"></script> -->
 
@@ -132,6 +136,9 @@
 
     <!-- Atlantis JS -->
     <script src="<?= base_url() ?>/public/assets/js/atlantis.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="<?= base_url() ?>/public/assets/js/custom.js"></script>
 
     <script>
         var base_url = '<?= base_url() ?>';

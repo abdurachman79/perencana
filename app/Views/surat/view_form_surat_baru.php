@@ -44,6 +44,12 @@
         font-weight: bold;
     }
 
+    .lembar-dposisi .invalid-feedback {
+        text-transform: none !important;
+        padding-left: 12px;
+        margin-top: 0 !important;
+    }
+
     .input-data input,
     select {
         border: none;
@@ -83,9 +89,11 @@
     <div class="row justify-content-center">
         <div class="col-10">
 
-            <form action="<?= base_url('surat/simpansuratbaru') ?>" method="POST" id="form-lembar-disposisi">
+            <form action="<?= base_url('surat/formsuratbaru') ?>" method="POST" id="form-lembar-disposisi" autocomplete="off">
 
                 <?= csrf_field(); ?>
+
+                <div class="flash-data" data-flashdata="<?= session()->getFlashdata('flashdata') ?>"></div>
 
                 <div class="card">
                     <div class="card-body">
@@ -114,6 +122,7 @@
                                     <input type="text" id="kepada" name="kepada" value="Kadiv. Perencanaan Air Minum" readonly>
                                     <label for="kepada">Kepada</label>
                                 </div>
+
                                 <div class="col-6 input-data">
                                     <select id="unitkerja-pengusul" name="unitkerja-pengusul">
                                         <option selected>Pilih Unit Kerja ...</option>
@@ -130,6 +139,7 @@
                                     <input type="date" id="tgl-agenda" name="tgl-agenda" class="tanggal">
                                     <label for="tgl-agenda">Diterima Tgl.</label>
                                 </div>
+
                                 <div class="col-6 input-data">
                                     <input type="date" id="tgl-memo-usulan" name="tgl-memo-usulan" class="tanggal">
                                     <label for="tgl-memo-usulan">Tgl. Memo</label>
@@ -141,6 +151,7 @@
                                     <input type="text" id="no-agenda" name="no-agenda">
                                     <label for="no-agenda">Agenda No.</label>
                                 </div>
+
                                 <div class="col-6 input-data">
                                     <input type="text" id="no-memo-usulan" name="no-memo-usulan">
                                     <label for="no-memo-usulan">No. Memo</label>
@@ -158,6 +169,7 @@
                                     </select>
                                     <label for="jenis-memo-usulan">Jenis Memo</label>
                                 </div>
+
                                 <div class="col-6 input-data">
                                     <input type="text" id="nilai-usulan" name="nilai-usulan">
                                     <label for="nilai-usulan">Nilai Memo</label>
@@ -174,6 +186,7 @@
                                     </select>
                                     <label for="bidang">Diteruskan ke</label>
                                 </div>
+
                                 <div class="col-6 input-data">
                                     <input type="text" id="sifat" name="sifat">
                                     <label for="sifat">Sifat</label>
@@ -249,9 +262,32 @@
 
 <?= $this->section('script'); ?>
 
+<!-- jQuery Validate -->
+<script src="<?= base_url() ?>/public/assets/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
 <script>
     document.getElementById('tgl-agenda').value = new moment().format('YYYY-MM-DD');
     document.getElementById('tgl-memo-usulan').value = new moment().format('YYYY-MM-DD');
+
+    $(document).ready(function() {
+        $('#form-lembar-disposisi').validate({
+            rules: {
+                'tgl-agenda': "required",
+                'no-agenda': "required",
+                'perihal': "required",
+            },
+            messages: {
+                'tgl-agenda': "Kolom ini belum diisi",
+                'no-agenda': "Kolom ini belum diisi",
+                'perihal': "Kolom ini belum diisi",
+            },
+            errorElement: "em",
+            errorPlacement: function(error, element) {
+                error.addClass("invalid-feedback");
+                error.appendTo(element.next("label"))
+            }
+        });
+    });
 </script>
 
 <?= $this->endSection(); ?>

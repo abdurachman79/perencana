@@ -9,6 +9,9 @@ class Surat extends BaseController
 {
     public function formsuratbaru()
     {
+        if ($this->request->getPost()) {
+            session()->setFlashdata('flashdata', 'Data berhasil disimpan');
+        }
         return view('surat/view_form_surat_baru');
     }
 
@@ -49,21 +52,12 @@ class Surat extends BaseController
 
     public function simpansuratbaru()
     {
-        $model = new SuratModel();
-        $data = $this->request->getPost();
-        $surat = new SuratEntity();
-        $surat->fill($data);
-        $model->save($surat);
-        // $data = [
-        //     'no_agenda'          => $this->request->getVar('no-agenda'),
-        //     'tgl_agenda'         => $this->request->getVar('tgl-agenda'),
-        //     'no_memo_usulan'     => $this->request->getVar('no-memo-usulan'),
-        //     'tgl_memo_usulan'    => $this->request->getVar('tgl-memo-usulan'),
-        //     'jenis_memo_usulan'  => $this->request->getVar('jenis-memo-usulan'),
-        //     'perihal'            => $this->request->getVar('perihal'),
-        //     'bidang'             => $this->request->getVar('bidang'),
-        //     'unitkerja_pengusul' => $this->request->getVar('unitkerja-pengusul')
-        // ];
-        dd($surat);
+        session()->setFlashdata('flashdata', 'Data berhasil disimpan');
+        // $model = new SuratModel();
+        // $data = $this->request->getPost();
+        // $surat = new SuratEntity();
+        // $surat->fill($data);
+        // $model->save($surat);
+        // dd($surat);
     }
 }
