@@ -74,6 +74,18 @@
         text-decoration: underline;
         letter-spacing: 1.5px;
     }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
 </style>
 <?= $this->endSection(); ?>
 
@@ -125,7 +137,7 @@
 
                                 <div class="col-6 input-data">
                                     <select id="unitkerja-pengusul" name="unitkerja-pengusul">
-                                        <option selected>Pilih Unit Kerja ...</option>
+                                        <option disabled selected hidden>Pilih Unit Kerja...</option>
                                         <option value="1">Divisi Umum</option>
                                         <option value="2">Divisi Pengolahan Air Minum</option>
                                         <option value="3">Divisi Peralatan Teknik</option>
@@ -148,7 +160,10 @@
                                 <div class="underline"></div>
 
                                 <div class="col-6 input-data">
-                                    <input type="text" id="no-agenda" name="no-agenda">
+                                    <div class="d-flex">
+                                        <input type="text" id="no-agenda1" name="no-agenda1" oninput="numberOnly(this.id)" maxlength="5" style="width: 15%;">
+                                        <input type="text" id="no-agenda2" name="no-agenda2" value="/PRC/<?= bulanRomawi() ?>/<?= date('Y') ?>" readonly>
+                                    </div>
                                     <label for="no-agenda">Agenda No.</label>
                                 </div>
 
@@ -161,7 +176,7 @@
 
                                 <div class="col-6 input-data">
                                     <select id="jenis-memo-usulan" name="jenis-memo-usulan">
-                                        <option selected></option>
+                                        <option disabled selected hidden>Pilih Jenis Memo...</option>
                                         <option value="1">Harga</option>
                                         <option value="2">RAB</option>
                                         <option value="3">Realisasi</option>
@@ -179,7 +194,7 @@
 
                                 <div class="col-6 input-data">
                                     <select id="bidang" name="bidang">
-                                        <option selected></option>
+                                        <option disabled selected hidden>Pilih Bidang...</option>
                                         <option value="1">Kabid Perencana Teknik</option>
                                         <option value="2">Kabid Pengawasan Teknik</option>
                                         <option value="3">Kabid Gambar Teknik</option>
@@ -269,18 +284,31 @@
     document.getElementById('tgl-agenda').value = new moment().format('YYYY-MM-DD');
     document.getElementById('tgl-memo-usulan').value = new moment().format('YYYY-MM-DD');
 
+    function numberOnly(id) {
+        let elem = document.getElementById(id);
+        elem.value = elem.value.replace(/[^0-9]/gi, "");
+    }
+
     $(document).ready(function() {
         $('#form-lembar-disposisi').validate({
             rules: {
+                'unitkerja-pengusul': "required",
                 'tgl-agenda': "required",
-                'no-agenda': "required",
+                'no-agenda1': "required",
                 'tgl-memo-usulan': "required",
                 'no-memo-usulan': "required",
+                'jenis-memo-usulan': "required",
+                'bidang': "required",
                 'perihal': "required",
             },
             messages: {
+                'unitkerja-pengusul': "Kolom ini belum diisi",
                 'tgl-agenda': "Kolom ini belum diisi",
-                'no-agenda': "Kolom ini belum diisi",
+                'no-agenda1': "Kolom ini belum diisi",
+                'tgl-memo-usulan': "Kolom ini belum diisi",
+                'no-memo-usulan': "Kolom ini belum diisi",
+                'jenis-memo-usulan': "Kolom ini belum diisi",
+                'bidang': "Kolom ini belum diisi",
                 'perihal': "Kolom ini belum diisi",
             },
             errorElement: "em",

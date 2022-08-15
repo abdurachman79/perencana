@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Entities\SuratEntity;
 use App\Models\SuratModel;
+use CodeIgniter\I18n\Time;
 
 class Surat extends BaseController
 {
@@ -11,6 +12,7 @@ class Surat extends BaseController
     {
         if ($this->request->getPost()) {
             session()->setFlashdata('flashdata', 'Data berhasil disimpan');
+            dd($this->request->getPost());
         }
         return view('surat/view_form_surat_baru');
     }
@@ -52,12 +54,16 @@ class Surat extends BaseController
 
     public function simpansuratbaru()
     {
-        session()->setFlashdata('flashdata', 'Data berhasil disimpan');
+        // session()->setFlashdata('flashdata', 'Data berhasil disimpan');
         // $model = new SuratModel();
         // $data = $this->request->getPost();
         // $surat = new SuratEntity();
         // $surat->fill($data);
         // $model->save($surat);
-        // dd($surat);
+        // dd($data);
+    }
+
+    public function coba()
+    {
     }
 }
