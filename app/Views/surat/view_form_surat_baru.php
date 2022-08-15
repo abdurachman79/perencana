@@ -274,6 +274,8 @@
             rules: {
                 'tgl-agenda': "required",
                 'no-agenda': "required",
+                'tgl-memo-usulan': "required",
+                'no-memo-usulan': "required",
                 'perihal': "required",
             },
             messages: {
