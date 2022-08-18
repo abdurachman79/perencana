@@ -112,45 +112,37 @@
 
     <div class="row g-0 mb-2">
         <div class="col-12 text-right">
-            <select class="">
+
+            <select id="tahun" name="tahun" class="">
                 <option selected>Tahun</option>
                 <option value="1">2021</option>
                 <option value="2">2022</option>
                 <option value="3">2023</option>
             </select>
-            <select class="ms-2">
-                <option selected>Bulan</option>
-                <option value="1">Januari</option>
-                <option value="2">Februari</option>
-                <option value="3">Maret</option>
-                <option value="4">April</option>
-                <option value="5">Mei</option>
-                <option value="6">Juni</option>
-                <option value="6">Juli</option>
-                <option value="6">Agustus</option>
-                <option value="6">September</option>
-                <option value="6">Oktober</option>
-                <option value="6">November</option>
-                <option value="6">Desember</option>
+
+            <select id="bulan" name="bulan" class="ms-2">
+                <?php $bulan = namaBulan(); ?>
+                <?php for ($i = 1; $i <= count($bulan); $i++) : ?>
+                    <option value=<?= $i ?> <?= ($i == date('m')) ? "selected" : "" ?>><?= $bulan[$i - 1] ?></option>
+                <?php endfor; ?>
             </select>
+
             <select class="ms-2">
-                <option selected>Pekerjaan</option>
-                <option value="1">2021</option>
-                <option value="2">2022</option>
-                <option value="3">2023</option>
+                <option value="0" selected>Semua Pekerjaan</option>
+                <option value="1">RAB</option>
+                <option value="2">HARGA</option>
+                <option value="3">REALISASI</option>
             </select>
+
             <select class="ms-2" style="max-width: 15%;">
-                <option selected>Unit Kerja</option>
+                <option value="0" selected>Semua Unit Kerja</option>
                 <option value="1">Divisi Transmisi dan Distribusi</option>
-                <option value="2">2022</option>
-                <option value="3">2023</option>
             </select>
+
             <select class="ms-2">
-                <option selected>Pemeriksa</option>
-                <option value="1">2021</option>
-                <option value="2">2022</option>
-                <option value="3">2023</option>
+                <option value="0" selected>Semua Pemeriksa</option>
             </select>
+
             <?php if ($tipe == 1) : ?>
                 <a href="<?= base_url('/form-surat-baru') ?>" class="btn btn-success float-end">
                     <span>Surat Baru</span>
