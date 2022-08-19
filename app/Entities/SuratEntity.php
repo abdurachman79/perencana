@@ -20,4 +20,10 @@ class SuratEntity extends Entity
 		'deleted_at',
 	];
 	protected $casts   = [];
+
+	public function setNoAgenda($string1, $string2)
+	{
+		$this->attributes["no-agenda"] = $string1 . $string2;
+		return $this;
+	}
 }

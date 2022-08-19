@@ -18,12 +18,13 @@ class Surat extends BaseController
     public function formsuratbaru()
     {
         if ($this->request->getPost()) {
-            // $data = $this->request->getPost();
-            // $surat = new SuratEntity();
-            // $surat->fill($data);
-            // $this->model->save($surat);
-            // session()->setFlashdata('flashdata', 'Data berhasil disimpan');
-            dd($this->request->getPost());
+            $data = $this->request->getPost();
+            $surat = new SuratEntity();
+            $surat->setNoAgenda($data['no-agenda1'], $data['no-agenda2']);
+            $surat->fill($data);
+            $this->model->save($surat);
+            session()->setFlashdata('flashdata', 'Data berhasil disimpan');
+            // dd($surat);
         }
         return view('surat/view_form_surat_baru');
     }
