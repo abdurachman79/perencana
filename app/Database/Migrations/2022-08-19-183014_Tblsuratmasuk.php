@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class TblSurat extends Migration
+class Tblsuratmasuk extends Migration
 {
 	public function up()
 	{
@@ -22,23 +22,14 @@ class TblSurat extends Migration
 			'tgl_agenda' => [
 				'type' => 'DATE'
 			],
-			'no_memo_usulan' => [
+			'no_memo' => [
 				'type'       => 'VARCHAR',
 				'constraint' => '24'
 			],
-			'tgl_memo_usulan' => [
+			'tgl_memo' => [
 				'type' => 'DATE'
 			],
-			'no_memo_pengesahan' => [
-				'type'       => 'VARCHAR',
-				'constraint' => '24',
-				'null'       => TRUE
-			],
-			'tgl_memo_pengesahan' => [
-				'type' => 'DATE',
-				'null' => TRUE
-			],
-			'jenis_memo_usulan' => [
+			'jenis' => [
 				'type'           => 'INT',
 				'constraint'     => 3
 			],
@@ -50,21 +41,11 @@ class TblSurat extends Migration
 				'type'           => 'INT',
 				'constraint'     => 3
 			],
-			'unitkerja_pengusul' => [
+			'unitkerja' => [
 				'type'           => 'INT',
 				'constraint'     => 3
 			],
-			'nilai_usulan'  => [
-				'type'       => 'BIGINT',
-				'constraint' => 20,
-				'null'       => TRUE
-			],
-			'nilai_pengesahan'  => [
-				'type'       => 'BIGINT',
-				'constraint' => 20,
-				'null'       => TRUE
-			],
-			'selisih'  => [
+			'nilai'  => [
 				'type'       => 'BIGINT',
 				'constraint' => 20,
 				'null'       => TRUE
@@ -77,17 +58,7 @@ class TblSurat extends Migration
 				'type'           => 'INT',
 				'constraint'     => 3,
 			],
-			'revisi' => [
-				'type'           => 'INT',
-				'constraint'     => 3,
-				'null'           => TRUE
-			],
-			'selesai' => [
-				'type'           => 'INT',
-				'constraint'     => 3,
-				'null'           => TRUE
-			],
-			'durasi' => [
+			'ada_revisi' => [
 				'type'           => 'INT',
 				'constraint'     => 3,
 				'null'           => TRUE
@@ -108,11 +79,11 @@ class TblSurat extends Migration
 			],
 		]);
 		$this->forge->addKey('id', true);
-		$this->forge->createTable('tbl_surat');
+		$this->forge->createTable('tbl_surat_masuk');
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('tbl_surat');
+		$this->forge->dropTable('tbl_surat_masuk');
 	}
 }

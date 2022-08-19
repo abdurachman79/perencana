@@ -23,6 +23,14 @@
         padding: 0 !important;
     }
 
+    .table tbody td.harga {
+        border-left: 6px solid green !important;
+    }
+
+    .table tbody td.rab {
+        border-left: 6px solid red !important;
+    }
+
     .table tbody tr td:last-child {
         border-right: 1px solid #ebedf2;
     }
@@ -164,40 +172,43 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td style="border-left: 6px solid red !important;">
-                            <div class="d-flex">
 
-                                <div class="col-agenda">
-                                    <span>Agenda No.</span>
-                                    <span class="nomor">13</span>
-                                    <span>04/08/2022</span>
-                                </div>
+                    <?php foreach ($surat as $s) : ?>
+                        <tr>
+                            <td class="<?= $s->getJenis() ?>">
+                                <div class="d-flex">
 
-                                <div class="col-detail">
-                                    <a href="<?= base_url('surat/suratdetail') ?>">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente corporis eum totam facilis tempore asd dolor sit amet consectetur ipsum dolor sit amet</a>
-                                    <div class="d-flex">
-                                        <div class="sub-detail" style="min-width: 24%;">
-                                            <span data-tooltip="Asal Memo" data-tooltip-position="bottom"><i class="fas fa-map-marker me-1" style="color: #1572E8;"></i>Divisi Transmisi dan Distribusi</span>
-                                        </div>
-                                        <div class="sub-detail ms-3" style="min-width: 17%;">
-                                            <span data-tooltip="No. Memo" data-tooltip-position="bottom"><i class="far fa-sticky-note me-1" style="color: red;"></i>123/PAM/02/2022</span>
-                                        </div>
-                                        <div class="sub-detail ms-3" style="min-width: 13%;">
-                                            <span data-tooltip="Tgl. Memo" data-tooltip-position="bottom"><i class="far fa-calendar me-1" style="color: green;"></i>04/08/2022</span>
-                                        </div>
-                                        <div class="sub-detail ms-3" style="min-width: 13%;">
-                                            <span data-tooltip="Nilai RAB" data-tooltip-position="bottom"><i class="fas fa-dollar-sign me-1" style="color: orange;"></i>Rp. 999.000.000.000</span>
-                                        </div>
-                                        <div class="sub-detail ms-3" style="min-width: 13%;">
-                                            <span data-tooltip="Pemeriksa" data-tooltip-position="bottom"><i class="fas fa-user me-1" style="color: blue"></i>AR</span>
+                                    <div class="col-agenda">
+                                        <span>Agenda No.</span>
+                                        <span class="nomor"><?= $s->getNoAgenda() ?></span>
+                                        <span><?= $s->tgl_agenda ?></span>
+                                    </div>
+
+                                    <div class="col-detail">
+                                        <a href="<?= base_url('surat/suratdetail') ?>"><?= $s->perihal ?></a>
+                                        <div class="d-flex">
+                                            <div class="sub-detail" style="min-width: 24%;">
+                                                <span data-tooltip="Asal Memo" data-tooltip-position="bottom"><i class="fas fa-map-marker me-1" style="color: #1572E8;"></i><?= $s->unitkerja ?></span>
+                                            </div>
+                                            <div class="sub-detail ms-3" style="min-width: 17%;">
+                                                <span data-tooltip="No. Memo" data-tooltip-position="bottom"><i class="far fa-sticky-note me-1" style="color: red;"></i><?= $s->no_memo ?></span>
+                                            </div>
+                                            <div class="sub-detail ms-3" style="min-width: 13%;">
+                                                <span data-tooltip="Tgl. Memo" data-tooltip-position="bottom"><i class="far fa-calendar me-1" style="color: green;"></i><?= $s->tgl_memo ?></span>
+                                            </div>
+                                            <div class="sub-detail ms-3" style="min-width: 13%;">
+                                                <span data-tooltip="Nilai RAB" data-tooltip-position="bottom"><i class="fas fa-dollar-sign me-1" style="color: orange;"></i><?= $s->nilai ?></span>
+                                            </div>
+                                            <div class="sub-detail ms-3" style="min-width: 13%;">
+                                                <span data-tooltip="Pemeriksa" data-tooltip-position="bottom"><i class="fas fa-user me-1" style="color: blue"></i><?= ($s->pemeriksa) ? $s->pemeriksa : "Belum Ada" ?></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            </div>
-                        </td>
-                    </tr>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
 
                 </tbody>
             </table>

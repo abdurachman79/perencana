@@ -136,13 +136,13 @@
                                 </div>
 
                                 <div class="col-6 input-data">
-                                    <select id="unitkerja-pengusul" name="unitkerja-pengusul">
+                                    <select id="unitkerja" name="unitkerja">
                                         <option disabled selected hidden>Pilih Unit Kerja...</option>
                                         <option value="1">Divisi Umum</option>
                                         <option value="2">Divisi Pengolahan Air Minum</option>
                                         <option value="3">Divisi Peralatan Teknik</option>
                                     </select>
-                                    <label for="unitkerja-pengusul">Dari</label>
+                                    <label for="unitkerja">Dari</label>
                                 </div>
 
                                 <div class="underline"></div>
@@ -153,8 +153,8 @@
                                 </div>
 
                                 <div class="col-6 input-data">
-                                    <input type="date" id="tgl-memo-usulan" name="tgl-memo-usulan" class="tanggal">
-                                    <label for="tgl-memo-usulan">Tgl. Memo</label>
+                                    <input type="date" id="tgl-memo" name="tgl-memo" class="tanggal">
+                                    <label for="tgl-memo">Tgl. Memo</label>
                                 </div>
 
                                 <div class="underline"></div>
@@ -164,30 +164,30 @@
                                         <input type="text" id="no-agenda1" name="no-agenda1" oninput="numberOnly(this.id)" maxlength="5" style="width: 15%;">
                                         <input type="text" id="no-agenda2" name="no-agenda2" value="/PRC/<?= bulanRomawi() ?>/<?= date('Y') ?>" readonly>
                                     </div>
-                                    <label for="no-agenda">Agenda No.</label>
+                                    <label for="no-agenda1">Agenda No.</label>
                                 </div>
 
                                 <div class="col-6 input-data">
-                                    <input type="text" id="no-memo-usulan" name="no-memo-usulan">
+                                    <input type="text" id="no-memo" name="no-memo" oninput="(this.value = this.value.toUpperCase())">
                                     <label for="no-memo-usulan">No. Memo</label>
                                 </div>
 
                                 <div class="underline"></div>
 
                                 <div class="col-6 input-data">
-                                    <select id="jenis-memo-usulan" name="jenis-memo-usulan">
+                                    <select id="jenis" name="jenis">
                                         <option disabled selected hidden>Pilih Jenis Memo...</option>
                                         <option value="1">Harga</option>
                                         <option value="2">RAB</option>
                                         <option value="3">Realisasi</option>
-                                        <option value="3">Lainnya</option>
+                                        <option value="4">Lainnya</option>
                                     </select>
-                                    <label for="jenis-memo-usulan">Jenis Memo</label>
+                                    <label for="jenis">Jenis Memo</label>
                                 </div>
 
                                 <div class="col-6 input-data">
-                                    <input type="text" id="nilai-usulan" name="nilai-usulan">
-                                    <label for="nilai-usulan">Nilai Memo</label>
+                                    <input type="text" id="nilai" name="nilai">
+                                    <label for="nilai">Nilai Memo</label>
                                 </div>
 
                                 <div class="underline"></div>
@@ -215,6 +215,9 @@
                                 </div>
 
                                 <div class="underline"></div>
+
+                                <input type="hidden" id="status" name="status" value="1">
+                                <input type="hidden" id="ada-revisi" name="ada-revisi" value="0">
 
                             </div>
 
@@ -282,7 +285,7 @@
 
 <script>
     document.getElementById('tgl-agenda').value = new moment().format('YYYY-MM-DD');
-    document.getElementById('tgl-memo-usulan').value = new moment().format('YYYY-MM-DD');
+    document.getElementById('tgl-memo').value = new moment().format('YYYY-MM-DD');
 
     function numberOnly(id) {
         let elem = document.getElementById(id);
@@ -292,29 +295,33 @@
     $(document).ready(function() {
         $('#form-lembar-disposisi').validate({
             rules: {
-                'unitkerja-pengusul': "required",
+                'unitkerja': "required",
                 'tgl-agenda': "required",
                 'no-agenda1': "required",
-                'tgl-memo-usulan': "required",
-                'no-memo-usulan': "required",
-                'jenis-memo-usulan': "required",
+                'tgl-memo': "required",
+                'no-memo': "required",
+                'jenis': "required",
                 'bidang': "required",
                 'perihal': "required",
             },
             messages: {
-                'unitkerja-pengusul': "Kolom ini belum diisi",
+                'unitkerja': "Kolom ini belum diisi",
                 'tgl-agenda': "Kolom ini belum diisi",
                 'no-agenda1': "Kolom ini belum diisi",
-                'tgl-memo-usulan': "Kolom ini belum diisi",
-                'no-memo-usulan': "Kolom ini belum diisi",
-                'jenis-memo-usulan': "Kolom ini belum diisi",
+                'tgl-memo': "Kolom ini belum diisi",
+                'no-memo': "Kolom ini belum diisi",
+                'jenis': "Kolom ini belum diisi",
                 'bidang': "Kolom ini belum diisi",
                 'perihal': "Kolom ini belum diisi",
             },
             errorElement: "em",
             errorPlacement: function(error, element) {
                 error.addClass("invalid-feedback");
-                error.appendTo(element.next("label"))
+                if (element.prop("name") === "no-agenda1") {
+                    error.appendTo(element.parent().next("label"))
+                } else {
+                    error.appendTo(element.next("label"))
+                }
             }
         });
     });

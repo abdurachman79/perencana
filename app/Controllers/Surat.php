@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Entities\SuratEntity;
 use App\Models\SuratModel;
-use CodeIgniter\I18n\Time;
 
 class Surat extends BaseController
 {
@@ -17,14 +16,9 @@ class Surat extends BaseController
 
     public function formsuratbaru()
     {
-        if ($this->request->getPost()) {
-            $data = $this->request->getPost();
-            $surat = new SuratEntity();
-            $surat->setNoAgenda($data['no-agenda1'], $data['no-agenda2']);
-            $surat->fill($data);
-            $this->model->save($surat);
-            session()->setFlashdata('flashdata', 'Data berhasil disimpan');
-            // dd($surat);
+        if ($this->request->getMethod() == "post") {
+            $this->simpansuratbaru($this->request->getPost());
+            // dd($this->request->getPost());
         }
         return view('surat/view_form_surat_baru');
     }
@@ -33,7 +27,8 @@ class Surat extends BaseController
     {
         $data = [
             'title'  => 'Surat Masuk',
-            'tipe'   => 1
+            'tipe'   => 1,
+            'surat'  => $this->model->findAll()
         ];
         return view('surat/view_surat', $data);
     }
@@ -64,18 +59,19 @@ class Surat extends BaseController
         return view('surat/view_surat_detail', $data);
     }
 
-    public function simpansuratbaru()
+    private function simpansuratbaru($post)
     {
-        // session()->setFlashdata('flashdata', 'Data berhasil disimpan');
-        // $model = new SuratModel();
-        // $data = $this->request->getPost();
-        // $surat = new SuratEntity();
-        // $surat->fill($data);
-        // $model->save($surat);
-        // dd($data);
+        $surat = new SuratEntity();
+        $surat->fill($post);
+        $surat->setNoAgenda($post['no-agenda1'], $post['no-agenda2']);
+        $this->model->save($surat);
+        session()->setFlashdata('flashdata', 'Data berhasil disimpan');
     }
 
     public function coba()
     {
+        $no = "123/PRC/IX/2022";
+        $data = explode("/", $no);
+        dd($data);
     }
 }

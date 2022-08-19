@@ -2,31 +2,27 @@
 
 namespace App\Models;
 
+use App\Entities\SuratEntity;
 use CodeIgniter\Model;
 
 class SuratModel extends Model
 {
-	protected $table                = 'tbl_surat';
+	protected $table                = 'tbl_surat_masuk';
 	protected $useTimestamps        = true;
+	protected $returnType           = SuratEntity::class;
 	protected $allowedFields        = [
 		'no_agenda',
 		'tgl_agenda',
-		'no_memo_usulan',
-		'tgl_memo_usulan',
-		'no_memo_pengesahan',
-		'tgl_memo_pengesahan',
-		'jenis_memo_usulan',
+		'no_memo',
+		'tgl_memo',
+		'jenis',
 		'perihal',
 		'bidang',
-		'unitkerja_pengusul',
-		'nilai_usulan',
-		'nilai_pengesahan',
-		'selisih',
+		'unitkerja',
+		'nilai',
 		'pemeriksa',
 		'status',
-		'revisi',
-		'selesai',
-		'durasi',
+		'ada_revisi',
 		'created_by',
 		'updated_by'
 	];
