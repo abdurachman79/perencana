@@ -134,7 +134,7 @@
                 <option value="3">REALISASI</option>
             </select>
 
-            <select class="ms-2" style="max-width: 15%;">
+            <select class="ms-2" style="max-width: 16%;">
                 <option value="0" selected>Semua Unit Kerja</option>
                 <option value="1">Divisi Transmisi dan Distribusi</option>
             </select>

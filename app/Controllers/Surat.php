@@ -8,10 +8,21 @@ use CodeIgniter\I18n\Time;
 
 class Surat extends BaseController
 {
+    protected $model;
+
+    public function __construct()
+    {
+        $this->model = new SuratModel();
+    }
+
     public function formsuratbaru()
     {
         if ($this->request->getPost()) {
-            session()->setFlashdata('flashdata', 'Data berhasil disimpan');
+            // $data = $this->request->getPost();
+            // $surat = new SuratEntity();
+            // $surat->fill($data);
+            // $this->model->save($surat);
+            // session()->setFlashdata('flashdata', 'Data berhasil disimpan');
             dd($this->request->getPost());
         }
         return view('surat/view_form_surat_baru');
