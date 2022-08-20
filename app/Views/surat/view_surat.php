@@ -42,7 +42,8 @@
         border-right: 1px solid #ebedf2 !important;
         padding: 7px 18px 7px 6px !important;
         font-size: 14px !important;
-        color: #7c7c7c !important;
+        /* color: #7c7c7c !important; */
+        color: #495057 !important;
     }
 
     select:disabled {
@@ -104,6 +105,77 @@
         font-size: 12px;
         /* font-weight: bold; */
         line-height: 2px;
+    }
+
+    #modal-custom .sections {
+        overflow: hidden;
+    }
+
+    #modal-custom section {
+        padding: 30px;
+    }
+
+    #modal-custom section label,
+    #modal-custom section select {
+        font-size: 18px !important;
+    }
+
+    #modal-custom section select {
+        padding: 0 0 10px 0 !important;
+        border: none !important;
+    }
+
+    #modal-custom section button {
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        margin-bottom: 26px;
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    #modal-custom section button {
+        height: 36px;
+        padding: 0;
+    }
+
+    #modal-custom section input:focus {
+        border-color: #28CA97;
+    }
+
+    /* #modal-custom section label[for="check"] {
+        margin-bottom: 26px;
+        font-size: 14px;
+        color: #999;
+        display: block;
+    } */
+
+    #modal-custom section footer {
+        overflow: hidden;
+        margin-top: 40px;
+    }
+
+    #modal-custom section button {
+        background: #5cb85c;
+        color: white;
+        margin: 0;
+        border: 0;
+        cursor: pointer;
+        width: 50%;
+        float: left;
+    }
+
+    #modal-custom section button:hover {
+        opacity: 0.8;
+    }
+
+    #modal-custom section button:nth-child(1) {
+        border-radius: 3px 0 0 3px;
+        background: #292b2c;
+    }
+
+    #modal-custom section button:nth-child(2) {
+        border-radius: 0 3px 3px 0;
     }
 </style>
 
@@ -200,7 +272,9 @@
                                                 <span data-tooltip="Nilai RAB" data-tooltip-position="bottom"><i class="fas fa-dollar-sign me-1" style="color: orange;"></i><?= $s->nilai ?></span>
                                             </div>
                                             <div class="sub-detail ms-3" style="min-width: 13%;">
-                                                <span data-tooltip="Pemeriksa" data-tooltip-position="bottom"><i class="fas fa-user me-1" style="color: blue"></i><?= ($s->pemeriksa) ? $s->pemeriksa : "Belum Ada" ?></span>
+                                                <span data-tooltip="Pemeriksa" data-tooltip-position="bottom"><i class="fas fa-user me-1" style="color: blue"></i>
+                                                </span>
+                                                <a href="#" data-izimodal-open="#modal-custom" data-izimodal-transitionin="fadeInDown"><?= ($s->pemeriksa) ? $s->pemeriksa : "Belum Ada" ?></a>
                                             </div>
                                         </div>
                                     </div>
@@ -216,7 +290,28 @@
         </div>
     </div>
 
+</div>
 
+<!-- Modal structure -->
+<div id="modal-custom">
+    <div class="sections">
+        <section>
+            <div class="row g-0 justify-content-between">
+                <label for="pemeriksa-modal" class="col-4">Pemeriksa:</label>
+                <select id="pemeriksa-modal" name="pemeriksa-modal" class="col-7">
+                    <option disabled selected hidden>Pilih Jenis Memo...</option>
+                    <option value="1">Harga</option>
+                    <option value="2">RAB</option>
+                    <option value="3">Realisasi</option>
+                    <option value="4">Lainnya</option>
+                </select>
+            </div>
+            <footer>
+                <button data-iziModal-close data-iziModal-transitionOut="bounceOutDown">Batal</button>
+                <button class="submit">OK</button>
+            </footer>
+        </section>
+    </div>
 </div>
 
 <?= $this->endSection(); ?>
@@ -234,6 +329,13 @@
         "language": {
             "url": base_url + "/public/assets/datatable-id.json"
         }
+    });
+
+    $("#modal-custom").iziModal({
+        // title: 'Pemeriksa',
+        // headerColor: '#1572E8',
+        headerColor: '#333333',
+        width: 400,
     });
 </script>
 

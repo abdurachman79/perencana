@@ -10,6 +10,7 @@
                         <p>Beranda</p>
                     </a>
                 </li>
+
                 <li class="nav-section">
                     <!-- <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
@@ -32,6 +33,19 @@
                     <a href="<?= base_url('surat-keluar') ?>">
                         <i class="fas fa-angle-right"></i>
                         <p>Surat Keluar</p>
+                    </a>
+                </li>
+
+                <li class="nav-section">
+                    <!-- <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span> -->
+                    <h4 class="text-section mb-0">Master Data</h4>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('/unitkerja') ?>">
+                        <i class="fas fa-angle-right"></i>
+                        <p>Data Unit Kerja</p>
                     </a>
                 </li>
 

@@ -29,7 +29,8 @@
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/atlantis.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/datatables.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/tooltip.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>/public/assets/css/izitoast.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/izitoast.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/iziModal.min.css">
 
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="<?= base_url() ?>/public/assets/css/custom.css">
@@ -110,7 +111,10 @@
     <script src="<?= base_url() ?>/public/assets/js/plugin/moment.js/moment.min.js"></script>
 
     <!-- IziToast JS -->
-    <script src="<?= base_url(); ?>/public/assets/js/plugin/izitoast/izitoast.min.js"></script>
+    <script src="<?= base_url(); ?>/public/assets/js/plugin/izi/izitoast.min.js"></script>
+
+    <!-- IziModal JS -->
+    <script src="<?= base_url(); ?>/public/assets/js/plugin/izi/iziModal.min.js"></script>
 
     <!-- Chart JS -->
     <!-- <script src="<?= base_url() ?>/public/assets/js/plugin/chart.js/chart.min.js"></script> -->
