@@ -6,21 +6,25 @@ use CodeIgniter\Entity;
 
 class TipeUnitkerjaEntity extends Entity
 {
-    protected $datamap = [];
+    protected $datamap = [
+        'nama-tipe' => 'nama'
+    ];
+
     protected $dates   = [
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
     protected $casts   = [];
 
-    public function getNama()
-    {
-        return strtoupper($this->attributes["nama"]);
-    }
+    // public function getNama()
+    // {
+    //     return strtoupper($this->attributes["nama"]);
+    // }
 
-    public function getSingkatan()
-    {
-        return strtoupper($this->attributes["singkatan"]);
-    }
+    // public function getSingkatan()
+    // {
+    //     return strtoupper($this->attributes["singkatan"]);
+    // }
 }

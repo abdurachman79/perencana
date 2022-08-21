@@ -104,6 +104,9 @@
     <!-- Datatables -->
     <script src="<?= base_url() ?>/public/assets/js/plugin/datatables/datatables.min.js"></script>
 
+    <!-- jQuery Validate -->
+    <script src="<?= base_url() ?>/public/assets/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
     <!-- jQuery Scrollbar -->
     <script src="<?= base_url() ?>/public/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 

@@ -280,8 +280,6 @@
 
 <?= $this->section('script'); ?>
 
-<!-- jQuery Validate -->
-<script src="<?= base_url() ?>/public/assets/js/plugin/jquery-validate/jquery.validate.min.js"></script>
 
 <script>
     document.getElementById('tgl-agenda').value = new moment().format('YYYY-MM-DD');
