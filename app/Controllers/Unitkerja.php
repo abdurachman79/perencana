@@ -93,4 +93,11 @@ class Unitkerja extends BaseController
     }
 
     /************* Unit Kerja CRUD End ************/
+
+    public function coba()
+    {
+        $unit = $this->model->find(1);
+        dd($unit->tipe);
+        // dd($unit->gettipe()->singkatan);
+    }
 }

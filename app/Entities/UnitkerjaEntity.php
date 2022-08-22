@@ -3,9 +3,13 @@
 namespace App\Entities;
 
 use CodeIgniter\Entity;
+use App\Models\TipeUnitkerjaModel;
 
 class UnitkerjaEntity extends Entity
 {
+
+	protected $tipe;
+
 	protected $datamap = [
 		'nama-unitkerja' => 'nama',
 		'tipe-id'        => 'tipe'
@@ -18,4 +22,15 @@ class UnitkerjaEntity extends Entity
 	];
 
 	protected $casts   = [];
+
+	public function getTipe()
+	{
+		$model = new TipeUnitkerjaModel();
+		return $model->find($this->attributes['tipe']);
+	}
+
+	public function getNama()
+	{
+		return $this->getTipe()->singkatan . " " . $this->attributes['nama'];
+	}
 }

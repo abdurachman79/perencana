@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use App\Models\UnitkerjaModel;
 use CodeIgniter\Entity;
 
 class SuratEntity extends Entity
@@ -24,6 +25,12 @@ class SuratEntity extends Entity
 	{
 		$nomor = explode("/", $this->attributes["no_agenda"]);
 		return $nomor[0];
+	}
+
+	public function getUnitkerja()
+	{
+		$model = new UnitkerjaModel();
+		return $model->find($this->attributes['unitkerja']);
 	}
 
 	public function getJenis()

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Entities\SuratEntity;
 use App\Models\SuratModel;
+use App\Models\UnitkerjaModel;
 
 class Surat extends BaseController
 {
@@ -20,7 +21,11 @@ class Surat extends BaseController
             $this->simpansuratbaru($this->request->getPost());
             // dd($this->request->getPost());
         }
-        return view('surat/view_form_surat_baru');
+        $unitkerjaModel = new UnitkerjaModel();
+        $data = [
+            'unitkerja' => $unitkerjaModel->orderBy('tipe', 'asc')->findAll(),
+        ];
+        return view('surat/view_form_surat_baru', $data);
     }
 
     public function suratmasuk()

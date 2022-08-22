@@ -61,13 +61,13 @@
                             <tbody>
                                 <?php $i = 1 ?>
                                 <?php foreach ($unitkerja as $u) : ?>
-                                    <?php if ($t->id == $u->tipe) : ?>
+                                    <?php if ($t->id == $u->tipe->id) : ?>
                                         <tr>
                                             <td class="text-center"><?= $i++ ?></td>
-                                            <td class="text-uppercase"><?= $t->singkatan . ' ' . $u->nama ?></td>
+                                            <td class="text-uppercase"><?= $u->nama ?></td>
                                             <td class="text-uppercase text-center"><?= $u->kode ?></td>
                                             <td>
-                                                <a href="#" class="px-3 btn-edit" data-id="<?= $u->id ?>" data-nama="<?= $u->nama ?>" data-kode="<?= $u->kode ?>" data-tipe="<?= $u->tipe ?>" data-singkatan="<?= $t->singkatan ?>">
+                                                <a href="#" class="px-3 btn-edit" data-id="<?= $u->id ?>" data-nama="<?= $u->nama ?>" data-kode="<?= $u->kode ?>" data-tipe="<?= $u->tipe->id ?>" data-singkatan="<?= $t->singkatan ?>">
                                                     <i class="far fa-edit fa-lg"></i>
                                                     <span>Edit</span>
                                                 </a>
@@ -177,7 +177,11 @@
         modal.iziModal('setTitle', 'Tambah Data');
         modal.iziModal('setSubtitle', singkatan);
 
+        $('#tipe-id').prop('disabled', true);
         $('#tipe-id').val(tipeId);
+        $('#nama-unitkerja').val('');
+        $('#kode').val('');
+
         $('label[for="nama-unitkerja"]').text('Nama ' + singkatan + ' :');
         $('label[for="kode"]').text('Kode ' + singkatan + ' :');
     });
@@ -202,6 +206,10 @@
 
         $('label[for="nama-unitkerja"]').text('Nama ' + singkatan + ' :');
         $('label[for="kode"]').text('Kode ' + singkatan + ' :');
+
+        if ($('.invalid-feedback').is(':visible')) {
+            $('.invalid-feedback').css('display', 'none');
+        }
 
         $('#form-tambah-unitkerja').prop('action', base_url + '/unitkerja/update/' + id);
     });

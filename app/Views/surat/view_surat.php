@@ -181,15 +181,15 @@
 
                                     <div class="col-agenda">
                                         <span>Agenda No.</span>
-                                        <span class="nomor"><?= $s->getNoAgenda() ?></span>
+                                        <span class="nomor"><?= $s->no_agenda ?></span>
                                         <span><?= $s->tgl_agenda ?></span>
                                     </div>
 
                                     <div class="col-detail">
                                         <a href="<?= base_url('surat/suratdetail') ?>"><?= $s->perihal ?></a>
                                         <div class="d-flex">
-                                            <div class="sub-detail" style="min-width: 24%;">
-                                                <span data-tooltip="Asal Memo" data-tooltip-position="bottom"><i class="fas fa-map-marker me-1" style="color: #1572E8;"></i><?= $s->unitkerja ?></span>
+                                            <div class="sub-detail text-uppercase" style="min-width: 24%;">
+                                                <span data-tooltip="Asal Memo" data-tooltip-position="bottom"><i class="fas fa-map-marker me-1" style="color: #1572E8;"></i><?= $s->unitkerja->kode ?></span>
                                             </div>
                                             <div class="sub-detail ms-3" style="min-width: 17%;">
                                                 <span data-tooltip="No. Memo" data-tooltip-position="bottom"><i class="far fa-sticky-note me-1" style="color: red;"></i><?= $s->no_memo ?></span>

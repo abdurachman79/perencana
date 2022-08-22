@@ -136,11 +136,11 @@
                                 </div>
 
                                 <div class="col-6 input-data">
-                                    <select id="unitkerja" name="unitkerja">
+                                    <select id="unitkerja" name="unitkerja" class="text-capitalize">
                                         <option disabled selected hidden>Pilih Unit Kerja...</option>
-                                        <option value="1">Divisi Umum</option>
-                                        <option value="2">Divisi Pengolahan Air Minum</option>
-                                        <option value="3">Divisi Peralatan Teknik</option>
+                                        <?php foreach ($unitkerja as $u) : ?>
+                                            <option value="<?= $u->id ?>"><?= $u->nama ?></option>
+                                        <?php endforeach ?>
                                     </select>
                                     <label for="unitkerja">Dari</label>
                                 </div>
