@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use App\Libraries\ModelLoader;
 use App\Models\UnitkerjaModel;
 use CodeIgniter\Entity;
 
@@ -21,7 +22,14 @@ class SuratEntity extends Entity
 	];
 	protected $casts   = [];
 
-	public function getNoAgenda()
+	protected $unitModel;
+
+	public function setUnitModel(UnitkerjaModel $model)
+	{
+		$this->unitModel = $model;
+	}
+
+	public function getAgendaNumber()
 	{
 		$nomor = explode("/", $this->attributes["no_agenda"]);
 		return $nomor[0];
@@ -29,7 +37,8 @@ class SuratEntity extends Entity
 
 	public function getUnitkerja()
 	{
-		$model = new UnitkerjaModel();
+		// $model = new UnitkerjaModel();
+		$model = ModelLoader::fetch('UnitkerjaModel');
 		return $model->find($this->attributes['unitkerja']);
 	}
 
@@ -46,6 +55,11 @@ class SuratEntity extends Entity
 			$jenis = "lain";
 		}
 		return $jenis;
+	}
+
+	public function getNilai()
+	{
+		return number_format($this->attributes['nilai'], 0, '', ',');
 	}
 
 	public function setNoAgenda(String $string1, String $string2)

@@ -37,6 +37,7 @@
 
             <table class="table table-detail">
                 <tbody>
+
                     <tr>
                         <td colspan="4" class="bg-grey1 text-left sub-judul">USULAN
                             <a href="<?= base_url() ?>" class="">
@@ -53,6 +54,7 @@
                             </a>
                         </td>
                     </tr>
+
                     <tr>
                         <td class="w-25">
                             <div class="d-flex justify-content-between">
@@ -60,8 +62,9 @@
                                 <span>:</span>
                             </div>
                         </td>
-                        <td colspan="3" class="fw-bold">Pekerjaan Pemasangan Pipa Transmisi 400mm</td>
+                        <td colspan="3" class="fw-bold"><?= $surat->perihal ?></td>
                     </tr>
+
                     <tr>
                         <td class="w-25">
                             <div class="d-flex justify-content-between">
@@ -69,8 +72,16 @@
                                 <span>:</span>
                             </div>
                         </td>
-                        <td colspan="3" class="text-uppercase">rab</td>
+                        <td class="w-25 text-uppercase"><?= $surat->jenis ?></td>
+                        <td class="w-25">
+                            <div class="d-flex justify-content-between">
+                                <span>Nilai</span>
+                                <span>:</span>
+                            </div>
+                        </td>
+                        <td class="w-25"><?= $surat->nilai ?></td>
                     </tr>
+
                     <tr>
                         <td class="w-25">
                             <div class="d-flex justify-content-between">
@@ -78,15 +89,16 @@
                                 <span>:</span>
                             </div>
                         </td>
-                        <td class="w-25">1234/PRC/VIII/2022</td>
+                        <td class="w-25"><?= $surat->no_agenda ?></td>
                         <td class="w-25">
                             <div class="d-flex justify-content-between">
                                 <span>Tgl. Agenda</span>
                                 <span>:</span>
                             </div>
                         </td>
-                        <td class="w-25">04/08/2022</td>
+                        <td class="w-25"><?= $surat->tgl_agenda ?></td>
                     </tr>
+
                     <tr>
                         <td class="w-25">
                             <div class="d-flex justify-content-between">
@@ -94,31 +106,16 @@
                                 <span>:</span>
                             </div>
                         </td>
-                        <td class="w-25">MO-428/PAM/02/2022</td>
+                        <td class="w-25"><?= $surat->no_memo ?></td>
                         <td class="w-25">
                             <div class="d-flex justify-content-between">
                                 <span>Tgl. Memo Usulan</span>
                                 <span>:</span>
                             </div>
                         </td>
-                        <td class="w-25">04/08/2022</td>
+                        <td class="w-25"><?= $surat->tgl_memo ?></td>
                     </tr>
-                    <tr>
-                        <td class="w-25">
-                            <div class="d-flex justify-content-between">
-                                <span>No. Memo Pengesahan</span>
-                                <span>:</span>
-                            </div>
-                        </td>
-                        <td class="w-25">MO-657/PRC/01/2022</td>
-                        <td class="w-25">
-                            <div class="d-flex justify-content-between">
-                                <span>Tgl. Memo Pengesahan</span>
-                                <span>:</span>
-                            </div>
-                        </td>
-                        <td class="w-25">04/08/2022</td>
-                    </tr>
+
                     <tr>
                         <td class="w-25">
                             <div class="d-flex justify-content-between">
@@ -126,17 +123,16 @@
                                 <span>:</span>
                             </div>
                         </td>
-                        <td colspan="3">Divisi Transmisi dan Distribusi</td>
-                    </tr>
-                    <tr>
+                        <td class="w-25 text-capitalize"><?= $surat->unitkerja->nama ?></td>
                         <td class="w-25">
                             <div class="d-flex justify-content-between">
                                 <span>Pemeriksa</span>
                                 <span>:</span>
                             </div>
                         </td>
-                        <td colspan="3">Abdurachman</td>
+                        <td class="w-25"><?= $surat->pemeriksa ?></td>
                     </tr>
+
                 </tbody>
             </table>
 

@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use App\Libraries\ModelLoader;
 use CodeIgniter\Entity;
 use App\Models\TipeUnitkerjaModel;
 
@@ -25,7 +26,8 @@ class UnitkerjaEntity extends Entity
 
 	public function getTipe()
 	{
-		$model = new TipeUnitkerjaModel();
+		// $model = new TipeUnitkerjaModel();
+		$model = ModelLoader::fetch('TipeUnitKerjaModel');
 		return $model->find($this->attributes['tipe']);
 	}
 

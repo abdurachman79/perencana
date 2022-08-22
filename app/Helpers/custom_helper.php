@@ -1,7 +1,6 @@
 <?php
 
 use CodeIgniter\I18n\Time;
-use PhpParser\Node\Stmt\TryCatch;
 
 function getDurasi($awal, $akhir)
 {

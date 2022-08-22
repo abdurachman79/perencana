@@ -30,36 +30,45 @@ class Surat extends BaseController
 
     public function suratmasuk()
     {
+        $unitkerjaModel = new UnitkerjaModel();
         $data = [
-            'title'  => 'Surat Masuk',
-            'tipe'   => 1,
-            'surat'  => $this->model->findAll()
+            'title'     => 'Surat Masuk',
+            'tipe'      => 1,
+            'surat'     => $this->model->where('status', 1)->findAll(),
+            'unitkerja' => $unitkerjaModel->orderBy('tipe', 'asc')->findAll(),
         ];
         return view('surat/view_surat', $data);
     }
 
     public function suratrevisi()
     {
+        $unitkerjaModel = new UnitkerjaModel();
         $data = [
-            'title'  => 'Surat Revisi',
-            'tipe'   => 2
+            'title'     => 'Surat Revisi',
+            'tipe'      => 2,
+            'surat'     => $this->model->where('status', 2)->findAll(),
+            'unitkerja' => $unitkerjaModel->orderBy('tipe', 'asc')->findAll(),
         ];
         return view('surat/view_surat', $data);
     }
 
     public function suratkeluar()
     {
+        $unitkerjaModel = new UnitkerjaModel();
         $data = [
-            'title'  => 'Surat Keluar',
-            'tipe'   => 3
+            'title'     => 'Surat Keluar',
+            'tipe'      => 3,
+            'surat'     => $this->model->where('status', 3)->findAll(),
+            'unitkerja' => $unitkerjaModel->orderBy('tipe', 'asc')->findAll(),
         ];
         return view('surat/view_surat', $data);
     }
 
-    public function suratdetail()
+    public function suratdetail($id)
     {
         $data = [
-            'title' => 'Surat Detail'
+            'title' => 'Surat Detail',
+            'surat'     => $this->model->find($id),
         ];
         return view('surat/view_surat_detail', $data);
     }
@@ -75,8 +84,9 @@ class Surat extends BaseController
 
     public function coba()
     {
-        $no = "123/PRC/IX/2022";
-        $data = explode("/", $no);
-        dd($data);
+        // $no = "123/PRC/IX/2022";
+        // $data = explode("/", $no);
+        // dd($data);
+        echo strstr("White Tank Top", " ");
     }
 }

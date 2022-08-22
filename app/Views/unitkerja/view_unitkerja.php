@@ -67,7 +67,7 @@
                                             <td class="text-uppercase"><?= $u->nama ?></td>
                                             <td class="text-uppercase text-center"><?= $u->kode ?></td>
                                             <td>
-                                                <a href="#" class="px-3 btn-edit" data-id="<?= $u->id ?>" data-nama="<?= $u->nama ?>" data-kode="<?= $u->kode ?>" data-tipe="<?= $u->tipe->id ?>" data-singkatan="<?= $t->singkatan ?>">
+                                                <a href="#" class="px-3 btn-edit" data-id="<?= $u->id ?>" data-nama="<?= substr(strstr($u->nama, " "), 1) ?>" data-kode="<?= $u->kode ?>" data-tipe="<?= $u->tipe->id ?>" data-singkatan="<?= $t->singkatan ?>">
                                                     <i class="far fa-edit fa-lg"></i>
                                                     <span>Edit</span>
                                                 </a>
