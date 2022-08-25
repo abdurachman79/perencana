@@ -49,6 +49,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?= base_url('/bidang') ?>">
+                        <i class="fas fa-angle-right"></i>
+                        <p>Data Bidang</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?= base_url('/users') ?>">
                         <i class="fas fa-angle-right"></i>
                         <p>Data User</p>

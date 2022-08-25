@@ -285,11 +285,6 @@
     document.getElementById('tgl-agenda').value = new moment().format('YYYY-MM-DD');
     document.getElementById('tgl-memo').value = new moment().format('YYYY-MM-DD');
 
-    function numberOnly(id) {
-        let elem = document.getElementById(id);
-        elem.value = elem.value.replace(/[^0-9]/gi, "");
-    }
-
     $(document).ready(function() {
         $('#form-lembar-disposisi').validate({
             rules: {

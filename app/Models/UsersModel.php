@@ -15,7 +15,8 @@ class UsersModel extends Model
         'username',
         'password',
         'inisial',
-        'role',
+        'bidang',
+        'level',
         'is_aktif'
     ];
 }

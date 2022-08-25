@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Tblrole extends Migration
+class Tblbidang extends Migration
 {
 	public function up()
 	{
@@ -19,7 +19,7 @@ class Tblrole extends Migration
 				'type'       => 'VARCHAR',
 				'constraint' => '64'
 			],
-			'keterangan' => [
+			'kode' => [
 				'type'       => 'VARCHAR',
 				'constraint' => '64'
 			],
@@ -31,11 +31,11 @@ class Tblrole extends Migration
 			],
 		]);
 		$this->forge->addKey('id', true);
-		$this->forge->createTable('tbl_role');
+		$this->forge->createTable('tbl_bidang');
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('tbl_role');
+		$this->forge->dropTable('tbl_bidang');
 	}
 }

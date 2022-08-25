@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Entities\TipeUnitkerjaEntity;
 use App\Entities\UnitkerjaEntity;
+use App\Libraries\ModelLoader;
 use App\Models\TipeUnitkerjaModel;
 use App\Models\UnitkerjaModel;
 
@@ -14,14 +15,14 @@ class Unitkerja extends BaseController
 
     public function __construct()
     {
-        $this->model = new UnitkerjaModel();
-        $this->tipeModel = new TipeUnitkerjaModel();
+        $this->model = ModelLoader::fetch('UnitkerjaModel');
+        $this->tipeModel = ModelLoader::fetch('TipeUnitkerjaModel');
     }
 
     public function index()
     {
         $data = [
-            'title'     => 'Unit Kerja',
+            'title'     => 'Data Unitkerja',
             'tipe'      => $this->tipeModel->findAll(),
             'unitkerja' => $this->model->findAll()
         ];
@@ -43,8 +44,7 @@ class Unitkerja extends BaseController
     {
         if ($this->request->getMethod() == "post") {
             $post = $this->request->getPost();
-            $tipeEntity = new TipeUnitkerjaEntity();
-            $tipeEntity->fill($post);
+            $tipeEntity = new TipeUnitkerjaEntity($post);
             $this->tipeModel->save($tipeEntity);
             session()->setFlashdata('flashdata', 'Data berhasil disimpan');
         }
@@ -55,8 +55,7 @@ class Unitkerja extends BaseController
     {
         if ($this->request->getMethod() == "post") {
             $post = $this->request->getPost();
-            $tipeEntity = new TipeUnitkerjaEntity();
-            $tipeEntity->fill($post);
+            $tipeEntity = new TipeUnitkerjaEntity($post);
             $this->tipeModel->update($id, $tipeEntity);
             session()->setFlashdata('flashdata', 'Data berhasil diubah');
         }
@@ -72,8 +71,7 @@ class Unitkerja extends BaseController
     {
         if ($this->request->getMethod() == "post") {
             $post = $this->request->getPost();
-            $unitEntity = new UnitkerjaEntity();
-            $unitEntity->fill($post);
+            $unitEntity = new UnitkerjaEntity($post);
             $this->model->save($unitEntity);
             session()->setFlashdata('flashdata', 'Data berhasil disimpan');
         }
@@ -84,8 +82,7 @@ class Unitkerja extends BaseController
     {
         if ($this->request->getMethod() == "post") {
             $post = $this->request->getPost();
-            $unitEntity = new UnitkerjaEntity();
-            $unitEntity->fill($post);
+            $unitEntity = new UnitkerjaEntity($post);
             $this->model->update($id, $unitEntity);
             session()->setFlashdata('flashdata', 'Data berhasil diubah');
         }

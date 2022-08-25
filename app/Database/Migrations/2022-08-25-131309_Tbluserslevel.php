@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Tbluser extends Migration
+class Tbluserslevel extends Migration
 {
 	public function up()
 	{
@@ -15,33 +15,17 @@ class Tbluser extends Migration
 				'unsigned'       => TRUE,
 				'auto_increment' => TRUE
 			],
+			'level' => [
+				'type'           => 'INT',
+				'constraint'     => 3,
+			],
 			'nama' => [
 				'type'       => 'VARCHAR',
 				'constraint' => '64'
 			],
-			'username' => [
+			'keterangan' => [
 				'type'       => 'VARCHAR',
 				'constraint' => '64'
-			],
-			'password' => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '255'
-			],
-			'inisial' => [
-				'type'           => 'VARCHAR',
-				'constraint'     => '8'
-			],
-			'bidang' => [
-				'type'           => 'INT',
-				'constraint'     => 3
-			],
-			'level' => [
-				'type'           => 'INT',
-				'constraint'     => 3
-			],
-			'is_aktif' => [
-				'type'           => 'INT',
-				'constraint'     => 3
 			],
 			'created_at' => [
 				'type'           => 'DATETIME'
@@ -51,11 +35,11 @@ class Tbluser extends Migration
 			],
 		]);
 		$this->forge->addKey('id', true);
-		$this->forge->createTable('tbl_users');
+		$this->forge->createTable('tbl_users_level');
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('tbl_users');
+		$this->forge->dropTable('tbl_users_level');
 	}
 }

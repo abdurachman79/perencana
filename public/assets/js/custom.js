@@ -1,9 +1,13 @@
-$(document).ready(function() {
+// $(document).ready(function() 
+  function numberOnly(id) {
+        let elem = document.getElementById(id);
+        elem.value = elem.value.replace(/[^0-9]/gi, "");
+    }
 
-    // Flashdata
-    let flashData = $('.flash-data').data('flashdata');
+   // Flashdata
+  let flashData = $('.flash-data').data('flashdata');
 
-    if (flashData) {
+   if (flashData) {
       iziToast.success({
         title        : '',
         message      : flashData,
@@ -15,4 +19,6 @@ $(document).ready(function() {
       });
   }
 
-});
+
+
+// });
