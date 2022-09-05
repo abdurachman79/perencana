@@ -3,7 +3,6 @@
 namespace App\Entities;
 
 use App\Libraries\ModelLoader;
-use App\Models\UnitkerjaModel;
 use CodeIgniter\Entity;
 
 class SuratEntity extends Entity
@@ -13,7 +12,7 @@ class SuratEntity extends Entity
 		'tgl-agenda'   => 'tgl_agenda',
 		'no-memo'      => 'no_memo',
 		'tgl-memo'     => 'tgl_memo',
-		'ada-revisi'   =>  'ada_revisi'
+		'ada-revisi'   => 'ada_revisi'
 	];
 	protected $dates   = [
 		'created_at',
@@ -21,13 +20,6 @@ class SuratEntity extends Entity
 		'deleted_at',
 	];
 	protected $casts   = [];
-
-	protected $unitModel;
-
-	public function setUnitModel(UnitkerjaModel $model)
-	{
-		$this->unitModel = $model;
-	}
 
 	public function getAgendaNumber()
 	{
@@ -37,7 +29,6 @@ class SuratEntity extends Entity
 
 	public function getUnitkerja()
 	{
-		// $model = new UnitkerjaModel();
 		$model = ModelLoader::fetch('UnitkerjaModel');
 		return $model->find($this->attributes['unitkerja']);
 	}

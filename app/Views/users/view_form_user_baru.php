@@ -101,7 +101,7 @@
     <div class="row justify-content-center">
         <div class="col-10">
 
-            <form action="<?= base_url('surat/simpansuratbaru') ?>" method="POST" id="form-lembar-disposisi" autocomplete="off">
+            <form action="<?= base_url('surat/formsuratbaru') ?>" method="POST" id="form-lembar-disposisi" autocomplete="off">
 
                 <?= csrf_field(); ?>
 
@@ -121,7 +121,7 @@
                                 <div class="col-10 header">
                                     <h3>Divisi Perencanaan Air Minum</h3>
                                     <h3>Perumda Tirtanadi Provsu</h3>
-                                    <h3>Intern</h3>
+                                    <h3><?= $title ?></h3>
                                 </div>
 
                             </div>
@@ -138,9 +138,6 @@
                                 <div class="col-6 input-data">
                                     <select id="unitkerja" name="unitkerja" class="text-capitalize">
                                         <option disabled selected hidden>Pilih Unit Kerja...</option>
-                                        <?php foreach ($unitkerja as $u) : ?>
-                                            <option value="<?= $u->id ?>"><?= $u->nama ?></option>
-                                        <?php endforeach ?>
                                     </select>
                                     <label for="unitkerja">Dari</label>
                                 </div>
@@ -214,41 +211,6 @@
                                     <label for="perihal">Perihal</label>
                                 </div>
 
-                                <div class="underline"></div>
-
-                                <input type="hidden" id="status" name="status" value="1">
-                                <input type="hidden" id="ada-revisi" name="ada-revisi" value="0">
-
-                            </div>
-
-                            <?php
-                            $data = [
-                                'Dana kerja', 'Setuju lembur biasa/istimewa',
-                                'Tidak perlu lembur', 'Monitor',
-                                'Utk dikerjakan dgn baik', 'Segera perbaiki',
-                                'Carikan jalan keluar', 'Penuhi sesuai kebutuhan',
-                                'Setuju usul, proses segera', 'Setuju Prinsip',
-                                'Cek & Lapor', 'Perhatikan personil',
-                                'Untuk menjadi perhatian', 'Setuju dipesan',
-                                'Cek & selesaikan sesuai aturan',
-                                'Teliti & perbaiki', ' Arsip',
-                                'Bahan Saudara'
-                            ];
-                            ?>
-
-                            <div class="row g-0 py-2 px-3">
-                                <?php for ($i = 0; $i < count($data); $i++) : ?>
-                                    <div class="col-6 d-flex align-items-center mb-1">
-                                        <i class="far fa-square fa-2x"></i>
-                                        <span class="font-13px ms-2"><?= $data[$i] ?></span>
-                                    </div>
-                                <?php endfor; ?>
-                            </div>
-
-                            <div class="underline"></div>
-
-                            <div class="row g-0 pt-1 px-3">
-                                <div class="col-12 catatan">Catatan:</div>
                             </div>
 
                         </div>

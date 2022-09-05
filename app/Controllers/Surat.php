@@ -4,12 +4,11 @@ namespace App\Controllers;
 
 use App\Entities\SuratEntity;
 use App\Libraries\ModelLoader;
-use App\Models\SuratModel;
-use App\Models\UnitkerjaModel;
 
 class Surat extends BaseController
 {
     protected $model;
+    protected $unitkerjaModel;
 
     public function __construct()
     {
@@ -67,7 +66,7 @@ class Surat extends BaseController
         return view('surat/view_surat_detail', $data);
     }
 
-    public function simpansuratbaru($post)
+    public function simpansuratbaru()
     {
         if ($this->request->getMethod() == "post") {
             $post = $this->request->getPost();
@@ -76,10 +75,12 @@ class Surat extends BaseController
             $this->model->save($suratEntity);
             session()->setFlashdata('flashdata', 'Data berhasil disimpan');
         }
+        return redirect()->to(base_url('surat/formsuratbaru'));
     }
 
     public function coba()
     {
+        dd($this->model->where('status', 1)->findAll());
         // $no = "123/PRC/IX/2022";
         // $data = explode("/", $no);
         // dd($data);

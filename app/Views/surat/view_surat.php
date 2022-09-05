@@ -160,7 +160,7 @@
             </select>
 
             <?php if ($tipe == 1) : ?>
-                <a href="<?= base_url('/form-surat-baru') ?>" class="btn btn-success float-end">
+                <a href="<?= base_url('/surat-masuk/form-surat-baru') ?>" class="btn btn-success float-end">
                     <span>Surat Baru</span>
                 </a>
             <?php endif; ?>
