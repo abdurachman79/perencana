@@ -80,7 +80,7 @@
                                     <td class="text-uppercase text-center"><?= $u->bidang->kode ?></td>
                                     <td class="text-uppercase text-center"><?= $u->level->nama ?></td>
                                     <td>
-                                        <a href="#" class="px-3 btn-edit" data-id="<?= $u->id ?>">
+                                        <a href="#" class="px-3 btn-edit" data-id="<?= $u->id ?>" data-nama="<?= $u->nama ?>" data-inisial="<?= $u->inisial ?>" data-username="<?= $u->username ?>" data-bidang="<?= $u->bidang->id ?>" data-level="<?= $u->level->id ?>">
                                             <i class="far fa-edit fa-lg"></i>
                                             <span>Edit</span>
                                         </a>
@@ -112,6 +112,7 @@
                 <div class="row g-0">
 
                     <div class="col-6 pe-4">
+                        <input type="hidden" id="id" name="id" value="0">
                         <div class="mb-4">
                             <label for="nama" class="">Nama</label>
                             <input type="text" id="nama" name="nama" class="w-100">
@@ -172,7 +173,7 @@
     var modal = $('#modal-custom').iziModal({
         subtitle: 'User',
         headerColor: '#292b2c',
-        width: 700,
+        width: 700
     });
 
     $('#form-tambah-user').validate({
@@ -186,6 +187,9 @@
                     data: {
                         'inisial': function() {
                             return $('#inisial').val();
+                        },
+                        'id': function() {
+                            return $('#id').val();
                         }
                     }
                 }
@@ -198,6 +202,9 @@
                     data: {
                         'username': function() {
                             return $('#username').val();
+                        },
+                        'id': function() {
+                            return $('#id').val();
                         }
                     }
                 }
@@ -232,6 +239,17 @@
 
         modal.iziModal('open');
         modal.iziModal('setTitle', 'Tambah Data');
+
+        $('#nama').val("");
+        $('#inisial').val("");
+        $('#username').val("");
+        $('#bidang').val(1).change();
+        $('#level').val(1).change();
+        $('#password').parent().show();
+
+        $('.invalid-feedback').hide();
+
+        $('#nama').focus();
     });
 
     $('.btn-edit').click(function(e) {
@@ -241,7 +259,35 @@
         modal.iziModal('setTitle', 'Edit Data');
 
         $('#password').parent().hide();
+        $('.invalid-feedback').hide();
 
+        let id = $(this).data('id');
+        let nama = $(this).data('nama');
+        let inisial = $(this).data('inisial');
+        let username = $(this).data('username');
+        let bidang = $(this).data('bidang');
+        let level = $(this).data('level');
+
+        $('#id').val(id);
+        $('#nama').val(nama);
+        $('#inisial').val(inisial);
+        $('#username').val(username);
+        $('#bidang').val(bidang).change();
+        $('#level').val(level).change();
+
+        $('#form-tambah-user').prop('action', base_url + '/users/updateuser/' + id);
+
+    });
+
+    /* Disable Spasi */
+    $('input#username').on({
+        keydown: function(e) {
+            if (e.which === 32)
+                return false;
+        },
+        change: function() {
+            this.value = this.value.replace(/\s/g, "");
+        }
     });
 </script>
 
