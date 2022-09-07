@@ -30,14 +30,6 @@ class Users extends BaseController
         return view('users/view_users', $data);
     }
 
-    // public function formuserbaru()
-    // {
-    //     $data = [
-    //         'title'   => 'Form User Baru'
-    //     ];
-    //     return view('users/view_form_user_baru', $data);
-    // }
-
     public function level()
     {
         $data = [
@@ -95,16 +87,6 @@ class Users extends BaseController
     // {
     //     $username = $this->usersModel->where('username', $this->request->getVar('username'))->findColumn('username');
     //     if ($username) {
-    //         echo json_encode(false);
-    //     } else {
-    //         echo json_encode(true);
-    //     }
-    // }
-
-    // public function isInisialAvailable()
-    // {
-    //     $inisial = $this->usersModel->where('inisial', $this->request->getVar('inisial'))->findColumn('inisial');
-    //     if ($inisial) {
     //         echo json_encode(false);
     //     } else {
     //         echo json_encode(true);

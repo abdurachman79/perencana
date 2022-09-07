@@ -33,6 +33,12 @@ class SuratEntity extends Entity
 		return $model->find($this->attributes['unitkerja']);
 	}
 
+	public function getPemeriksa()
+	{
+		$model = ModelLoader::fetch('UsersModel');
+		return $model->find($this->attributes['pemeriksa']);
+	}
+
 	public function getJenis()
 	{
 		$jenis = $this->attributes["jenis"];

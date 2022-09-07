@@ -157,6 +157,9 @@
 
             <select class="ms-2">
                 <option value="0" selected>Semua Pemeriksa</option>
+                <?php foreach ($pemeriksa as $p) : ?>
+                    <option value="<?= $p->id ?>"><?= $p->nama ?></option>
+                <?php endforeach ?>
             </select>
 
             <?php if ($tipe == 1) : ?>
@@ -208,9 +211,8 @@
                                                 <span data-tooltip="Nilai RAB" data-tooltip-position="bottom"><i class="fas fa-dollar-sign me-1" style="color: orange;"></i><?= $s->nilai ?></span>
                                             </div>
                                             <div class="sub-detail ms-3" style="min-width: 12%;">
-                                                <span data-tooltip="Pemeriksa" data-tooltip-position="bottom"><i class="fas fa-user me-1" style="color: blue"></i>AR
-                                                </span>
-                                                <!-- <a href="#" data-izimodal-open="#modal-custom" data-izimodal-transitionin="fadeInDown"><?= ($s->pemeriksa) ? $s->pemeriksa : "Belum Ada" ?></a> -->
+                                                <span data-tooltip="Pemeriksa" data-tooltip-position="bottom"><i class="fas fa-user me-1" style="color: blue"></i></span>
+                                                <a href="#" id="pemeriksa-<?= $s->id; ?>" class="edit-pemeriksa" data-id="<?= $s->id ?>"> <?= ($s->pemeriksa) ? strtoupper($s->pemeriksa->inisial) : "None" ?></a>
                                             </div>
                                         </div>
                                     </div>
@@ -233,13 +235,13 @@
     <div class="sections">
         <section>
             <div class="row g-0 justify-content-between">
+                <input type="hidden" id="id-surat" name="id-surat">
                 <label for="pemeriksa-modal" class="col-4">Pemeriksa:</label>
                 <select id="pemeriksa-modal" name="pemeriksa-modal" class="col-7">
-                    <option disabled selected hidden>Pilih Jenis Memo...</option>
-                    <option value="1">Harga</option>
-                    <option value="2">RAB</option>
-                    <option value="3">Realisasi</option>
-                    <option value="4">Lainnya</option>
+                    <option disabled selected hidden>Pilih Pemeriksa...</option>
+                    <?php foreach ($pemeriksa as $p) : ?>
+                        <option value="<?= $p->id ?>"><?= $p->nama ?></option>
+                    <?php endforeach ?>
                 </select>
             </div>
             <footer>
@@ -256,6 +258,12 @@
 <?= $this->section('script'); ?>
 
 <script>
+    var modal = $('#modal-custom').iziModal({
+        title: 'Pemeriksa',
+        headerColor: '#292b2c',
+        width: 400
+    });
+
     let table = new DataTable('#table-surat', {
         "ordering": false,
         "lengthChange": false,
@@ -267,11 +275,27 @@
         }
     });
 
-    $("#modal-custom").iziModal({
-        // title: 'Pemeriksa',
-        // headerColor: '#1572E8',
-        headerColor: '#333333',
-        width: 400,
+    $('a.edit-pemeriksa').click(function(e) {
+        e.preventDefault();
+        modal.iziModal('open');
+        $('#id-surat').val($(this).data('id'));
+    });
+
+    $('.submit').click(function(e) {
+        let id = $('#id-surat').val();
+        let pemeriksa = $('#pemeriksa-modal').val();
+        $.ajax({
+            type: 'post',
+            url: base_url + '/surat/update/' + id,
+            data: {
+                pemeriksa: pemeriksa
+            },
+            success: function(data) {
+                // console.log(JSON.parse(data));
+                $('#pemeriksa-' + id).text(JSON.parse(data));
+                modal.iziModal('close');
+            }
+        });
     });
 </script>
 

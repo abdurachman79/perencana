@@ -9,11 +9,13 @@ class Surat extends BaseController
 {
     protected $model;
     protected $unitkerjaModel;
+    protected $usersModel;
 
     public function __construct()
     {
         $this->model = ModelLoader::fetch('SuratModel');
         $this->unitkerjaModel = ModelLoader::fetch('UnitkerjaModel');
+        $this->usersModel = ModelLoader::fetch('UsersModel');
     }
 
     public function formsuratbaru()
@@ -31,6 +33,7 @@ class Surat extends BaseController
             'tipe'      => 1,
             'surat'     => $this->model->where('status', 1)->findAll(),
             'unitkerja' => $this->unitkerjaModel->orderBy('tipe', 'asc')->findAll(),
+            'pemeriksa' => $this->usersModel->findAll()
         ];
         return view('surat/view_surat', $data);
     }
@@ -78,9 +81,23 @@ class Surat extends BaseController
         return redirect()->to(base_url('surat/formsuratbaru'));
     }
 
+    public function update($id)
+    {
+        if ($this->request->getMethod() == "post") {
+            $post = $this->request->getPost();
+            $suratEntity = new SuratEntity($post);
+            $this->model->update($id, $suratEntity);
+            echo json_encode($suratEntity->pemeriksa->inisial);
+        }
+    }
+
     public function coba()
     {
-        dd($this->model->where('status', 1)->findAll());
+        $surat = $this->model->where('status', 1)->findAll();
+        foreach ($surat as $s) {
+            dd($s->pemeriksa);
+        }
+        // dd($this->model->where('status', 1)->findAll());
         // $no = "123/PRC/IX/2022";
         // $data = explode("/", $no);
         // dd($data);
