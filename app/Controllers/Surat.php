@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Entities\SuratEntity;
 use App\Libraries\ModelLoader;
+use CodeIgniter\I18n\Time;
 
 class Surat extends BaseController
 {
@@ -33,7 +34,7 @@ class Surat extends BaseController
             'tipe'      => 1,
             'surat'     => $this->model->where('status', 1)->findAll(),
             'unitkerja' => $this->unitkerjaModel->orderBy('tipe', 'asc')->findAll(),
-            'pemeriksa' => $this->usersModel->findAll()
+            'pemeriksa' => $this->usersModel->where('level', 4)->findAll()
         ];
         return view('surat/view_surat', $data);
     }
@@ -45,6 +46,7 @@ class Surat extends BaseController
             'tipe'      => 2,
             'surat'     => $this->model->where('status', 2)->findAll(),
             'unitkerja' => $this->unitkerjaModel->orderBy('tipe', 'asc')->findAll(),
+            'pemeriksa' => $this->usersModel->where('level', 4)->findAll()
         ];
         return view('surat/view_surat', $data);
     }
@@ -56,6 +58,7 @@ class Surat extends BaseController
             'tipe'      => 3,
             'surat'     => $this->model->where('status', 3)->findAll(),
             'unitkerja' => $this->unitkerjaModel->orderBy('tipe', 'asc')->findAll(),
+            'pemeriksa' => $this->usersModel->where('level', 4)->findAll()
         ];
         return view('surat/view_surat', $data);
     }
@@ -93,10 +96,12 @@ class Surat extends BaseController
 
     public function coba()
     {
-        $surat = $this->model->where('status', 1)->findAll();
-        foreach ($surat as $s) {
-            dd($s->pemeriksa);
-        }
+
+        echo Time::yesterday();
+        // $surat = $this->model->where('status', 1)->findAll();
+        // foreach ($surat as $s) {
+        //     dd($s->pemeriksa);
+        // }
         // dd($this->model->where('status', 1)->findAll());
         // $no = "123/PRC/IX/2022";
         // $data = explode("/", $no);

@@ -130,7 +130,7 @@
                                 <span>:</span>
                             </div>
                         </td>
-                        <td class="w-25"><?= $surat->pemeriksa ?></td>
+                        <td class="w-25"><?= $surat->pemeriksa->nama ?></td>
                     </tr>
 
                 </tbody>
